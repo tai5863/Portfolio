@@ -40,8 +40,6 @@ export default {
   },
   watch: {
     '$route' (to) {
-      console.log(this.$route.path);
-      
       let route_list = ['/photos', '/works', '/about'];
       let route_names = [];
 
@@ -53,7 +51,6 @@ export default {
 
         let to_name = to.path.slice(1);
         let result = route_names.filter(route_name => route_name != to_name);
-        console.log(result);
 
         let eRoute = document.getElementById(to_name + '_nav');
         eRoute.style.color = 'white';
@@ -66,7 +63,6 @@ export default {
       } else {
 
         for (let i = 0; i < route_names.length; i++) {
-          console.log(route_names[i] + '_nav');
           let result = document.getElementById('photos_nav');
           if (result) {
             let eEach = document.getElementById(route_names[i] + '_nav');
