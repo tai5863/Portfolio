@@ -3,7 +3,7 @@
     <div class="header_container">
       <nav class="nav_for_sections">
         <ul class="header_ul">
-          <li v-for="section in sections" :key="section.id"><router-link :to="'/Portfolio/' + section" :id="section + '_nav'">{{ section }}</router-link></li>
+          <li v-for="section in sections" :key="section.id"><router-link :to="'/' + section" :id="section + '_nav'">{{ section }}</router-link></li>
         </ul>
       </nav>
       <nav class="nav_for_small">
