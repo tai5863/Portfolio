@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>Taichi Uchida</title>
-    <script src="https://wgld.org/j/minMatrixb.js"></script>
-
-    <script id="vs_transform" type="x-shader/x-vertex">#version 300 es
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=favicon.ico><title>Taichi Uchida</title><script src=https://wgld.org/j/minMatrixb.js></script><script id=vs_transform type=x-shader/x-vertex>#version 300 es
       layout (location = 0) in vec3 position;
       layout (location = 1) in vec3 velocity;
   
@@ -132,20 +122,14 @@
         velocity *= 0.9 + 0.1 * abs(sin(time));
         vPosition = position;
         vVelocity = velocity;
-      }
-      </script>
-  
-      <script id="fs_transform" type="x-shader/x-fragment">#version 300 es
+      }</script><script id=fs_transform type=x-shader/x-fragment>#version 300 es
       precision highp float;
   
       out vec4 outColor;
   
       void main(void){
         outColor = vec4(1.0);
-      }
-      </script>
-  
-      <script id="vs_main" type="x-shader/x-vertex">#version 300 es
+      }</script><script id=vs_main type=x-shader/x-vertex>#version 300 es
       layout (location = 0) in vec3 position;
       layout (location = 1) in vec3 normal;
       layout (location = 2) in vec3 iPosition;
@@ -161,10 +145,7 @@
         vColor = iColor * (vec4(clamp(vec3(iVelocity.x) * 0.1, 0.0, 1.0), 1.0) + vec4(clamp(vec3(iVelocity.y) * 0.1, 0.0, 1.0), 1.0) + vec4(clamp(vec3(iVelocity.z) * 0.1, 0.0, 1.0), 1.0)) / 3.0;
         vec3 pos = position + iPosition;
         gl_Position = mvpMatrix * vec4(pos, 1.0);
-      }
-      </script>
-      
-      <script id="fs_main" type="x-shader/x-fragment">#version 300 es
+      }</script><script id=fs_main type=x-shader/x-fragment>#version 300 es
       precision highp float;
   
       in vec4  vColor;
@@ -173,21 +154,7 @@
   
       void main(void){
         outColor = vColor;
-      }
-      </script>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
-
-<style>
-body {
+      }</script><link href=css/about.2fbf478e.css rel=prefetch><link href=js/about.59fe0ee4.js rel=prefetch><link href=css/app.b9f58653.css rel=preload as=style><link href=js/app.6552d5fb.js rel=preload as=script><link href=js/chunk-vendors.fbe0c52d.js rel=preload as=script><link href=css/app.b9f58653.css rel=stylesheet></head><body><noscript><strong>We're sorry but portfolio doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=js/chunk-vendors.fbe0c52d.js></script><script src=js/app.6552d5fb.js></script></body></html><style>body {
   background-color: black;
   margin: 0;  
-}
-</style>
+}</style>
