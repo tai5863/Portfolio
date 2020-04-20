@@ -14,7 +14,8 @@
           </div>
           <div class="img_container">
             <ul style="padding: 0; list-style: none;">
-              <li><img :src="work.image" class="img" @click="openLink(work.url)"></li>
+              <li><img :src="work.image1" class="img first" @click="openLink(work.url)"></li>
+              <li><img :src="work.image2" class="img" @click="openLink(work.url)" v-if="work.image2"></li>
             </ul>
           </div>
         </li>
@@ -33,22 +34,24 @@ export default {
           name: '春日新歓2020情報Web', 
           message1: '筑波大学春日エリアをメインの活動場所とする情報メディア創成学類と図書館情報学類が行った春日新歓のWebサイト。', 
           message2: 'デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った。', 
-          image: require('@/assets/春日新歓情報Web.png'),
+          image1: require('@/assets/春日新歓情報Web1.png'),
+          image2: require('@/assets/春日新歓情報Web2.png'),
           url: 'https://kasugashinkan.com/?#/'
         },
         {
           name: 'TouchDesigner Works', 
-          message1: 'TouchDesignerで制作した映像。', 
-          image: require('@/assets/TD1.png'),
+          message1: 'TouchDesignerで制作したグラフィック表現。', 
+          message2: '学内サークルTMP主催のイベント「tonight!」にてVJも行った。', 
+          image1: require('@/assets/TD1.png'),
           url: ''
         },
-        // {
-        //   name: 'WebGL Demos', 
-        //   message1: 'WebGLを用いたデモ。', 
-        //   message2: 'Chromeでご覧ください。', 
-        //   image: require('@/assets/WebGL1.png'),
-        //   url: 'https://tai5863.github.io/Particle_Transition/Particle_Transition.html'
-        // },
+        {
+          name: 'WebGL Demos', 
+          message1: 'WebGLを用いたデモ。', 
+          message2: '「Instancing with TransformFeedback」や「Particle Transition」などがある。', 
+          image1: require('@/assets/WebGL1.png'),
+          url: 'https://tai5863.github.io/Particle_Transition/Particle_Transition.html'
+        },
       ]
     }
   },
@@ -120,6 +123,7 @@ export default {
   color: white;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-weight: 1000;
+  line-height: 35px;
 }
 .img_container {
   margin-top: 50px;
@@ -128,18 +132,30 @@ export default {
   width: 50%; 
   min-width: 500px;
   cursor: pointer;
+  margin-top: 45px;
+}
+.img.first {
+  margin-top: 30px;
 }
 @media screen and (max-width: 979px) {
   .works_container {
     display: block;
   }
-  .message_container.work {
-    margin-left: 70px;
-    margin-right: 70px;
-  }
   .img {
     min-width: 300px;
   } 
+}
+@media screen and (max-width: 480px) {
+  .works_container li {
+    padding-bottom: 30px;
+  }
+  .img {
+    min-width: 250px;
+  }
+  .message_container.work {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
 }
 </style>
 
