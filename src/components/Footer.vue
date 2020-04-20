@@ -1,7 +1,7 @@
 <template>
   <div class="footer_comp">
     <div class="footer_container">
-      <h2 class="me_name"><router-link to="/" class="home">Taichi Uchida</router-link></h2>
+      <h2 class="me_name"><router-link to="/Portfolio" class="home">Taichi Uchida</router-link></h2>
     </div>
   </div>
 </template>

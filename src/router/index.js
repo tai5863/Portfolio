@@ -6,12 +6,12 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
+    path: '/Portfolio',
     name: 'Home',
     component: Home
   },
   {
-    path: '/photos',
+    path: '/Portfolio/photos',
     name: 'Photos',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -19,7 +19,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Photos.vue')
   },
   {
-    path: '/works',
+    path: '/Portfolio/works',
     name: 'Works',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -27,7 +27,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Works.vue')
   },
   {
-    path: '/about',
+    path: '/Portfolio/about',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
