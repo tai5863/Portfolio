@@ -1,5 +1,5 @@
 <template>
-  <div id="photos">
+  <div class="photos">
     <h2 class="photos_title">Photos</h2>
     <div class="message_container begin">
       <p class="message begin">これは、僕が好きな景色たちです。</p>
@@ -43,7 +43,6 @@ export default {
     }
   },
   mounted: function(){
-    console.log(this.images);
     
     try { 
       window.addEventListener('scroll', addText, false);
@@ -88,7 +87,7 @@ export default {
 		opacity: 1;
 	}
 }
-#photos {
+.photos {
   width: 100vw;
   background-color: rgba(0, 0, 0, 0);
   position: absolute;
