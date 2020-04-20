@@ -151,14 +151,6 @@ img {
   margin: 0;
   min-height: 150px;
 }
-@keyframes show {
-	0% {
-		opacity: 0;
-  }
-	100% {
-		opacity: 1;
-	}
-}
 #message_end {
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
