@@ -54,7 +54,9 @@ export default {
         require('@/assets/春日新歓情報Web1.png'),
         require('@/assets/春日新歓情報Web2.png'),
         require('@/assets/TD1.png'),
-        require('@/assets/WebGL1.png')
+        require('@/assets/WebGL1.png'),
+        require('@/assets/menu-icon.png'),
+        require('@/assets/batu-icon.png')
       ]
     }
   },

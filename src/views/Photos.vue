@@ -44,20 +44,20 @@ export default {
   },
   mounted: function(){
 
-    let a = this.$route;
-    
+    let timer = null;
+
+    let height = document.documentElement.offsetHeight;
+      
     try { 
       window.addEventListener('scroll', addText, false);
     } catch (e) { 
       window.attachEvent('onscroll', addText);
-    }
-    
-    let timer = null;
-
-    let height = document.documentElement.offsetHeight;
+    } 
 
     function addText(){
+      
       clearTimeout(timer);
+
       timer = setTimeout(function() {
         
         let scrollHeight = document.documentElement.scrollHeight;
@@ -68,13 +68,18 @@ export default {
 
         let proximity = 0;
 
+        // console.log((scrollHeight - scrollPosition) / scrollHeight);
+
         if ((scrollHeight - scrollPosition) / scrollHeight <= proximity) {
-          if (a.path == '/photos') {
+          let isMessageEnd = document.getElementById('message_end') == null;
+          if (isMessageEnd == false) {
             let message_end = document.getElementById('message_end');
-          message_end.style.opacity = 1;
+            message_end.style.opacity = 1;
+          } else {
+            return;
           }
         }
-      }, 300 );
+      }, 300);
     }
   },
   destroyed: function(){
