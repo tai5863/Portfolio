@@ -36,6 +36,7 @@ export default {
 }
 .home_title {
   animation: show 0.6s both;
+  -webkit-animation: show 0.6s both;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
   font-size: 30px;
@@ -49,7 +50,9 @@ export default {
 }
 .message.begin {
   animation: show 0.6s both;
+  -webkit-animation: show 0.6s both;
   animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
   color: white;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-weight: 1000;

@@ -7,7 +7,7 @@
         </ul>
       </nav>
       <nav class="nav_for_small">
-        <input id="nav-input" type="checkbox" class="nav-unshown" style="-webkit-appearance: none;">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
         <label id="nav-open" for="nav-input"><span></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
@@ -117,16 +117,19 @@ router_link {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.3);
   transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
 }
 #works_nav {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.3);
   transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
 }
 #about_nav {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.3);
   transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
 }
 .nav_for_small {
   display: none;
@@ -179,6 +182,7 @@ router_link {
     background: black;
     opacity: 0;
     transition: .3s ease-in-out;
+    -webkit-transition: .3s ease-in-out;
   }
   #nav-content {
     overflow: auto;
@@ -210,6 +214,7 @@ router_link {
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
   }
   #nav-content #works_nav_for_small {
     width: 100%;
@@ -217,6 +222,7 @@ router_link {
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
   }
   #nav-content #about_nav_for_small {
     width: 100%;
@@ -224,6 +230,7 @@ router_link {
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
   }
   #nav-input:checked ~ #nav-close {
     display: block;
