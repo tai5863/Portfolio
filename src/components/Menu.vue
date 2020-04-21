@@ -7,11 +7,14 @@
         <ul class="header_ul">
           <li v-for="section in sections" :key="section.id" @click="closeMenu"><router-link :to="'/' + section" class="navs">{{ section }}</router-link></li>
         </ul>
+        <ul class="icons_ul">
+          <li v-for="item in items" :key="item.id"><a><img class="icon" :src="item.icon" border="0" width="25" @click="openLink(item.link)"></a></li>
+        </ul>
       </div>
     </div>
     <div class="footer_comp">
       <div class="footer_container">
-        <h2 class="me_name" @click="closeMenu"><router-link to="/" class="home_nav">Taichi Uchida</router-link></h2>
+        <h2 class="me_name"><router-link to="/" class="home_nav">Taichi Uchida</router-link></h2>
       </div>
     </div>
   </div>
@@ -22,7 +25,12 @@ export default {
   name: 'Menu',
   data () {
     return {
-      sections: ['photos', 'works', 'about']
+      sections: ['photos', 'works', 'about'],
+      items: [
+        { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
+        { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
+        { icon: require('@/assets/git-icon.png'), link: 'https://github.com/tai5863/' }
+      ]
     }
   },
   mounted: function(){
@@ -119,6 +127,18 @@ export default {
 }
 #item_container .me_accounts {
   margin: 0 auto;
+}
+#item_container .icons_ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+  width: 220px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+#item_container .icon {
+  cursor: pointer;
 }
 #menu .home_nav {
   display: block;
