@@ -79,7 +79,6 @@ export default {
             let eLoading = document.getElementById('loading');
             eLoading.style.opacity = 0;
             eLoading.style.zIndex = -1000;
-            console.log('loaded');
         }
       }
     }
