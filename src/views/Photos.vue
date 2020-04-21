@@ -2,7 +2,7 @@
   <div class="photos">
     <h2 class="photos_title">Photos</h2>
     <div class="message_container begin">
-      <p class="message begin">これは、僕が好きな景色たちです。</p>
+      <p class="message begin">これは 、僕が好きな景色たちです。</p>
     </div>
     <div id="photos_container">
       <ul>
