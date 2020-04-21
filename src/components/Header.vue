@@ -141,6 +141,7 @@ router_link {
     top: 30px;
     right: 30px;
     display: block;
+    -webkit-appearance: none;
   }
   .nav-unshown {
     display: none;
