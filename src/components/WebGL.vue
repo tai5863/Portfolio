@@ -39,6 +39,10 @@ export default {
       if (gl) {
         console.log('ready');
       } else {
+        gl.clearColor(1.0, 0.0, 0.0, 1.0);
+        gl.clearDepth(1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.viewport(0, 0, c.width, c.height);
         alert('webgl2 unsupported');
         return;
       }
