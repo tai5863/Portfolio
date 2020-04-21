@@ -7,9 +7,9 @@
         </ul>
       </nav>
       <nav class="nav_for_small">
-        <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span><img src="@/assets/menu-icon.png" style="width: 25px;"></span></label>
-        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <span><input id="nav-input" type="checkbox" class="nav-unshown"></span>
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <span><label class="nav-unshown" id="nav-close" for="nav-input"></label></span>
         <div id="nav-content">
           <ul class="header_ul">
             <li v-for="section in sections" :key="section.id" @click="closeNav"><router-link :to="'/' + section" :id="section + '_nav_for_small'">{{ section }}</router-link></li>
@@ -146,17 +146,24 @@ router_link {
     display: block;
     z-index: 5000;
   }
+  .nav_for_small span {
+    display: none;
+  }
   .nav-unshown {
     display: none;
   }
   #nav-open {
     display: inline-block;
     width: 30px;
-    height: 25px;
+    height: 22px;
     vertical-align: middle;
   }
   #nav-open span, #nav-open span:before, #nav-open span:after {
     position: absolute;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
     display: block;
     content: '';
     cursor: pointer;
