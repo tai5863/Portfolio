@@ -8,7 +8,7 @@
       </nav>
       <nav class="nav_for_small">
         <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span></span></label>
+        <label id="nav-open" for="nav-input" onclick=""><span></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
           <ul class="header_ul">
@@ -131,7 +131,7 @@ router_link {
 .nav_for_small {
   display: none;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
   .header_ul {
     display: none;
   }
