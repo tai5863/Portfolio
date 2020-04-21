@@ -12,11 +12,6 @@
         </ul>
       </div>
     </div>
-    <div class="footer_comp">
-      <div class="footer_container">
-        <h2 class="me_name"><router-link to="/" class="home_nav">Taichi Uchida</router-link></h2>
-      </div>
-    </div>
   </div>
 </template>
 
