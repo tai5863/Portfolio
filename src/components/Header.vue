@@ -9,7 +9,7 @@
       <nav class="nav_for_small">
         <span><input id="nav-input" type="checkbox" class="nav-unshown"></span>
         <label id="nav-open" for="nav-input"><span></span></label>
-        <span><label class="nav-unshown" id="nav-close" for="nav-input"></label></span>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
           <ul class="header_ul">
             <li v-for="section in sections" :key="section.id" @click="closeNav"><router-link :to="'/' + section" :id="section + '_nav_for_small'">{{ section }}</router-link></li>
