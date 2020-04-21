@@ -9,7 +9,10 @@
 
 <script>
 export default {
-  neme: 'Home'
+  neme: 'Home',
+  destroyed: function(){
+    window.scroll(0, 0);
+  }
 }
 </script>
 

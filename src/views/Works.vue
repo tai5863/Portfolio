@@ -1,5 +1,5 @@
 <template>
-  <div class="works">
+  <div id="works">
     <h2 class="works_title">Works</h2>
     <div class="message_container begin">
       <p class="message begin">これは、僕の作品たちです。</p>
@@ -55,6 +55,9 @@ export default {
       ]
     }
   },
+  destroyed: function(){
+    window.scroll(0, 0);
+  },
   methods: {
     openLink: function(link){
       if (link != '') {
@@ -76,7 +79,7 @@ export default {
 		opacity: 1;
 	}
 }
-.works {
+#works {
   position: absolute;
   top: 20%;
   width: 100vw;

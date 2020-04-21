@@ -35,6 +35,9 @@ export default {
       ]
     }
   },
+  destroyed: function(){
+    window.scroll(0, 0);
+  },
   methods: {
     openLink: function(link){
       window.open(link);

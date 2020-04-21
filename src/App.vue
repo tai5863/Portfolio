@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Loading></Loading>
     <Header></Header>
     <WebGL></WebGL>
     <transition name="trans">
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import Loading from '@/components/Loading.vue'
 import Header from '@/components/Header.vue'
 import WebGL from '@/components/WebGL.vue'
 import Footer from '@/components/Footer.vue'
@@ -22,6 +24,7 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'App',
   components: {
+    Loading,
     Header,
     WebGL,
     Footer
@@ -47,8 +50,36 @@ export default {
         require('@/assets/DSC_0334.jpg'),
         require('@/assets/DSC_0335.jpg'),
         require('@/assets/DSC_0514.jpg'),
-        require('@/assets/MyProfile.jpg')
+        require('@/assets/MyProfile.jpg'),
+        require('@/assets/春日新歓情報Web1.png'),
+        require('@/assets/春日新歓情報Web2.png'),
+        require('@/assets/TD1.png'),
+        require('@/assets/WebGL1.png')
       ]
+    }
+  },
+  mounted: function(){
+    this.loadFunc();
+  },
+  methods: {
+    loadFunc: function(){
+      let imgList = document.getElementsByTagName('img');
+      let count = 0;
+
+      for (let i = 0; i < imgList.length; i++) {
+        imgList[i].addEventListener('load', countNum);
+      }
+
+      function countNum(){
+        count++;
+
+        if (imgList.length == count) {
+            let eLoading = document.getElementById('loading');
+            eLoading.style.opacity = 0;
+            eLoading.style.zIndex = -1000;
+            console.log('loaded');
+        }
+      }
     }
   }
 }
@@ -83,7 +114,6 @@ export default {
 .trans-leave-active {
   transition: all 1s 0s;
 }
-
 .photos_loader {
   display: none;
 }

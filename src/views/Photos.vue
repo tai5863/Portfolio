@@ -72,6 +72,9 @@ export default {
         }
       }, 200 );
     }
+  },
+  destroyed: function(){
+    window.scroll(0, 0);
   }
 }
 </script>
