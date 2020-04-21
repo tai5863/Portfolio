@@ -8,7 +8,7 @@
       </nav>
       <nav class="nav_for_small">
         <input id="nav-input" type="checkbox" class="nav-unshown">
-        <label id="nav-open" for="nav-input"><span></span></label>
+        <label id="nav-open" for="nav-input"><span><img src="@/assets/menu-icon.png" style="width: 25px;"></span></label>
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
           <ul class="header_ul">
@@ -152,15 +152,11 @@ router_link {
   #nav-open {
     display: inline-block;
     width: 30px;
-    height: 22px;
+    height: 25px;
     vertical-align: middle;
   }
   #nav-open span, #nav-open span:before, #nav-open span:after {
     position: absolute;
-    height: 3px;
-    width: 25px;
-    border-radius: 3px;
-    background: rgb(255, 255, 255);
     display: block;
     content: '';
     cursor: pointer;
