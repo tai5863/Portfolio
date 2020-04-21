@@ -12,11 +12,6 @@
         </ul>
       </div>
     </div>
-    <div class="footer_comp">
-    <div class="footer_container">
-      <h2 class="me_name"><router-link to="/" class="home">Taichi Uchida</router-link></h2>
-    </div>
-  </div>
   </div>
 </template>
 
@@ -104,7 +99,7 @@ export default {
   -webkit-animation: show 0.6s both;
   animation-delay: 0.4s;
   -webkit-animation-delay: 0.4s;
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 0 8.5%;
 }
 #item_container .header_ul {
@@ -116,7 +111,7 @@ export default {
 }
 #item_container .header_ul li {
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 #item_container .navs {
   width: 100%;
@@ -135,7 +130,7 @@ export default {
   list-style: none;
   width: 220px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 10%;
 }
 #item_container .icon {
   cursor: pointer;
