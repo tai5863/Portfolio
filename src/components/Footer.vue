@@ -28,4 +28,8 @@ export default {
   cursor: pointer;
   min-width: 120px;
 }
+.home {
+  text-decoration: none;
+  color: white;
+}
 </style>

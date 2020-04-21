@@ -171,6 +171,9 @@ h3 {
   }
 }
 @media screen and (max-width: 480px) {
+  #about_container {
+    margin-bottom: 70px;
+  }
   #about_container > .content {
     overflow: auto;
     padding: 5%;
