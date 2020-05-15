@@ -14,8 +14,8 @@
           </div>
           <div class="img_container">
             <ul style="padding: 0; list-style: none;">
-              <li><img :src="work.image1" class="img first" @click="openLink(work.url)"></li>
-              <li><img :src="work.image2" class="img" @click="openLink(work.url)" v-if="work.image2"></li>
+              <li><img :src="work.image1" class="img first" @click="openLink(work.url1)"></li>
+              <li><img :src="work.image2" class="img" @click="openLink(work.url2)" v-if="work.image2"></li>
             </ul>
           </div>
         </li>
@@ -36,21 +36,26 @@ export default {
           message2: 'デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った。', 
           image1: require('@/assets/春日新歓情報Web1.png'),
           image2: require('@/assets/春日新歓情報Web2.png'),
-          url: 'https://kasugashinkan.com/?#/'
+          url1: 'https://kasugashinkan.com/?#/',
+          url2: 'https://kasugashinkan.com/?#/'
         },
         {
           name: 'TouchDesigner Works', 
           message1: 'TouchDesignerで制作したグラフィック表現。', 
           message2: '学内サークルTMP主催のイベント「tonight!」にてVJも行った。', 
           image1: require('@/assets/TD1.png'),
-          url: ''
+          image2: require('@/assets/TD2.png'),
+          url1: '',
+          url2: ''
         },
         {
           name: 'WebGL Demos', 
           message1: 'WebGLを用いたデモ。', 
           message2: '「Instancing with TransformFeedback」や「Particle Transition」などがある。', 
           image1: require('@/assets/WebGL1.png'),
-          url: 'https://tai5863.github.io/Particle_Transition/Particle_Transition.html'
+          image2: require('@/assets/WebGL2.png'),
+          url1: 'https://tai5863.github.io/ParticleTransition/',
+          url2: 'https://tai5863.github.io/InstancingWithTransformFeedback/'
         },
       ]
     }

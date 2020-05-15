@@ -22,8 +22,8 @@ export default {
     return {
       sections: ['photos', 'works', 'about'],
       items: [
-        { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
-        { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
+        { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' },
+        { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'},
         { icon: require('@/assets/git-icon.png'), link: 'https://github.com/tai5863/' }
       ]
     }
@@ -31,7 +31,6 @@ export default {
   mounted: function(){
     document.addEventListener("mousewheel", this.scroll_control, { passive: false });
     document.addEventListener("touchmove", this.scroll_control, { passive: false });
-    
   },
   methods: {
     openLink: function(link){
