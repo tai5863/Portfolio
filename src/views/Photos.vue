@@ -154,7 +154,6 @@ export default {
   transition-duration: 0.35s;
   transform: scale(0.9);
   text-align: -webkit-match-parent;
-  cursor: pointer;
 }
 #photos_container span:hover {
   transform: scale(0.975);
