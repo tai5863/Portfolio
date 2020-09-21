@@ -1,36 +1,24 @@
 <template>
-  <div class="header_comp">
-    <div class="header_container">
+  <div class="home_header_comp">
+    <div class="home_header_container">
       <nav class="nav_for_sections">
         <ul class="header_ul">
           <li v-for="section in sections" :key="section.id"><router-link :to="'/' + section" :id="section + '_nav'">{{ section }}</router-link></li>
         </ul>
       </nav>
-      <img src="@/assets/menu-icon.png" width="25px" class="menu" @click="pushMenu">
     </div>
-    <transition name="fade">
-      <Menu v-if="isMenu" @close="closeMenu"></Menu>
-    </transition>
   </div>
 </template>
 
 <script>
-import Menu from '@/components/Menu'
 
 export default {
   name: 'Header',
   components: {
-    Menu
   },
   data () {
     return {
-      isMenu: false,
       sections: ['works', 'about', 'picture'],
-      items: [
-        { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
-        { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
-        { icon: require('@/assets/git-icon.png'), link: 'https://github.com/tai5863/' }
-      ]
     }
   },
   watch: {
@@ -67,83 +55,49 @@ export default {
       }
     }
   },
-  methods: {
-    openLink: function(link){
-      window.open(link);
-    },
-    pushMenu: function(){
-      this.isMenu = true;
-    },
-    closeMenu: function(){
-      this.isMenu = false;
-    }
-  }
 }
 </script>
 
 <style>
-.header_comp {
+.home_header_comp {
+  position: absolute;
   width: 100vw;
-  position: fixed;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0);
+  top: 5%;
 }
-.header_container .header_ul {
-  font-family:'Segoe UI';
-  font-weight: bold;
-  font-size: 21px;
+.home_header_container .header_ul {
+  position: relative;
+  margin: 0 20%;
   list-style: none;
   display: flex;
-  justify-content: flex-end;
-  margin-top: 50px;
-  height: 50px;
+  justify-content: space-between;
+  padding: 0;
 }
-.header_container .header_ul li {
-  margin-right: calc(5% - 30px);
+li {
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 63px;
+  text-align: center;
+
+  color: #C9C9C9;
 }
-#photos_nav {
+#picture_nav {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.3);
+  color: #C9C9C9;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
 }
 #works_nav {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.3);
+  color: #C9C9C9;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
 }
 #about_nav {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.3);
+  color: #C9C9C9;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
-}
-.menu {
-  display: none;
-}
-#menu {
-  display: none;
-}
-@media screen and (max-width: 480px) {
-  .header_container .header_ul {
-    display: none;
-  }
-  .menu {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    display: block;
-    cursor: pointer;
-  }
-  #menu {
-  display: block;
-}
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

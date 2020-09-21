@@ -93,7 +93,7 @@ export default {
   animation: show 0.6s both;
   -webkit-animation: show 0.6s both;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
+  color: black;
   font-size: 30px;
   text-align: center;
 }
@@ -105,7 +105,7 @@ export default {
   -webkit-animation: show 0.6s both;
   animation-delay: 0.2s;
   -webkit-animation-delay: 0.2s;
-  color: white;
+  color: black;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-weight: 1000;
 }

@@ -1,60 +1,49 @@
 <template>
   <div class="home">
-    <h2 class="home_title">Portfolio</h2>
-    <div class="message_container begin">
-      <p class="message begin">これは、僕のポートフォリオです。</p>
+    <WebGL></WebGL>
+    <HomeHeader></HomeHeader>
+    <div class="name_container">
+      <h1 class="name">Taichi Uchida</h1>
     </div>
   </div>
 </template>
 
 <script>
+import HomeHeader from '@/components/HomeHeader.vue'
+import WebGL from '@/components/WebGL.vue'
+
 export default {
   neme: 'Home',
-  destroyed: function(){
-    window.scroll(0, 0);
-  }
+  components: {
+    HomeHeader,
+    WebGL
+  },
 }
 </script>
 
 <style scoped>
 
-@keyframes show {
-	0% {
-		transform: translate(0, 2em);
-		opacity: 0;
-  }
-	100% {
-		transform: translate(0, 0);
-		opacity: 1;
-	}
-}
 .home {
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0);
+  height: 100vh;
+}
+.name_container {
   position: absolute;
-  top: 20%;
+  width: 100%;
+  height: 95px;
+  left: 10%;
+  bottom: 10%;
 }
-.home_title {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-}
-.message_container.begin {
-  margin-top: 50px;
-}
-.message.begin::before {
-  opacity: 1;
-}
-.message.begin {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.2s;
-  -webkit-animation-delay: 0.2s;
-  color: white;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
+.name {
+  position: relative;
+  
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 70px;
+  line-height: 98px;
+  text-align: left;
+
+  color: #C9C9C9;
 }
 </style>

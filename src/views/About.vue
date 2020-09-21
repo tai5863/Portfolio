@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2 class="about_title">About</h2>
+    <h1 class="about_title">About</h1>
     <div class="message_container begin">
       <p class="message begin">これは、僕の自己紹介です。</p>
     </div>
@@ -65,8 +65,8 @@ export default {
 .about_title {
   animation: show 0.6s both;
   -webkit-animation: show 0.6s both;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
+  font-family: 'Segoe UI';
+  color: black;
   font-size: 30px;
   text-align: center;
 }
@@ -78,7 +78,6 @@ export default {
   -webkit-animation: show 0.6s both;
   animation-delay: 0.2s;
   -webkit-animation-delay: 0.2s;
-  color: white;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-weight: 1000;
 }
@@ -104,7 +103,6 @@ export default {
   align-items: center;
 }
 h2 {
-  color: rgb(255, 255, 255);
   font-size: 30px;
 }
 .me_photo {
@@ -115,10 +113,9 @@ h2 {
   margin: 0 auto;
 }
 .me_intro {
-  color: white;
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-weight: 1000;
-  display: flex;
+  text-align: center;
 }
 .intro_container {
   margin-top: 30px;
@@ -137,7 +134,6 @@ h3 {
 }
 .me_skills {
   margin-top: 30px;
-  color: rgb(255, 255, 255);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 500;
 }
