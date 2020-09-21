@@ -1,160 +1,30 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/Portfolio/favicon.ico><title>Taichi Uchida</title><script src=https://wgld.org/j/minMatrixb.js></script><script id=vs_transform type=x-shader/x-vertex>#version 300 es
-      layout (location = 0) in vec3 position;
-      layout (location = 1) in vec3 velocity;
-  
-      uniform float time;
-  
-      out vec3 vPosition;
-      out vec3 vVelocity;
-  
-      vec4 mod289(vec4 x) {
-        return x - floor(x * (1.0 / 289.0)) * 289.0; }
-  
-      float mod289(float x) {
-        return x - floor(x * (1.0 / 289.0)) * 289.0; }
-  
-      vec4 permute(vec4 x) {
-          return mod289(((x*34.0)+1.0)*x);
-      }
-  
-      float permute(float x) {
-          return mod289(((x*34.0)+1.0)*x);
-      }
-  
-      vec4 taylorInvSqrt(vec4 r)
-      {
-        return 1.79284291400159 - 0.85373472095314 * r;
-      }
-  
-      float taylorInvSqrt(float r)
-      {
-        return 1.79284291400159 - 0.85373472095314 * r;
-      }
-  
-      vec4 grad4(float j, vec4 ip)
-        {
-        const vec4 ones = vec4(1.0, 1.0, 1.0, -1.0);
-        vec4 p,s;
-  
-        p.xyz = floor( fract (vec3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
-        p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
-        s = vec4(lessThan(p, vec4(0.0)));
-        p.xyz = p.xyz + (s.xyz*2.0 - 1.0) * s.www; 
-  
-        return p;
-        }
-  
-      #define F4 0.309016994374947451
-  
-      float snoise(vec4 v)
-        {
-        const vec4  C = vec4( 0.138196601125011,
-                              0.276393202250021,
-                              0.414589803375032,
-                            -0.447213595499958);
-  
-        vec4 i  = floor(v + dot(v, vec4(F4)) );
-        vec4 x0 = v -   i + dot(i, C.xxxx);
-  
-        vec4 i0;
-        vec3 isX = step( x0.yzw, x0.xxx );
-        vec3 isYZ = step( x0.zww, x0.yyz );
-  
-        i0.x = isX.x + isX.y + isX.z;
-        i0.yzw = 1.0 - isX;
-  
-        i0.y += isYZ.x + isYZ.y;
-        i0.zw += 1.0 - isYZ.xy;
-        i0.z += isYZ.z;
-        i0.w += 1.0 - isYZ.z;
-  
-        vec4 i3 = clamp( i0, 0.0, 1.0 );
-        vec4 i2 = clamp( i0-1.0, 0.0, 1.0 );
-        vec4 i1 = clamp( i0-2.0, 0.0, 1.0 );
-  
-        vec4 x1 = x0 - i1 + C.xxxx;
-        vec4 x2 = x0 - i2 + C.yyyy;
-        vec4 x3 = x0 - i3 + C.zzzz;
-        vec4 x4 = x0 + C.wwww;
-  
-        i = mod289(i); 
-        float j0 = permute( permute( permute( permute(i.w) + i.z) + i.y) + i.x);
-        vec4 j1 = permute( permute( permute( permute (
-                  i.w + vec4(i1.w, i2.w, i3.w, 1.0 ))
-                + i.z + vec4(i1.z, i2.z, i3.z, 1.0 ))
-                + i.y + vec4(i1.y, i2.y, i3.y, 1.0 ))
-                + i.x + vec4(i1.x, i2.x, i3.x, 1.0 ));
-  
-        vec4 ip = vec4(1.0/294.0, 1.0/49.0, 1.0/7.0, 0.0) ;
-  
-        vec4 p0 = grad4(j0,   ip);
-        vec4 p1 = grad4(j1.x, ip);
-        vec4 p2 = grad4(j1.y, ip);
-        vec4 p3 = grad4(j1.z, ip);
-        vec4 p4 = grad4(j1.w, ip);
-  
-        vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
-        p0 *= norm.x;
-        p1 *= norm.y;
-        p2 *= norm.z;
-        p3 *= norm.w;
-        p4 *= taylorInvSqrt(dot(p4,p4));
-  
-        vec3 m0 = max(0.6 - vec3(dot(x0,x0), dot(x1,x1), dot(x2,x2)), 0.0);
-        vec2 m1 = max(0.6 - vec2(dot(x3,x3), dot(x4,x4)            ), 0.0);
-        m0 = m0 * m0;
-        m1 = m1 * m1;
-        return 49.0 * ( dot(m0*m0, vec3( dot( p0, x0 ), dot( p1, x1 ), dot( p2, x2 )))
-                    + dot(m1*m1, vec2( dot( p3, x3 ), dot( p4, x4 ) ) ) ) ;
-  
-        }
-  
-      void main(void) {
-        vec3 velocity = velocity;
-        vec3 position = position;
-        position += velocity * 0.005;
-        velocity += 50.0 * vec3(
-          snoise(vec4(0.1 * position, 7.255 + 0.5 * time)),
-          snoise(vec4(0.1 * position, 3.553 + 0.5 * time)),
-          snoise(vec4(0.1 * position, 1.259 + 0.5 * time))
-        ) * 0.2;
-        velocity += -position * length(position) * 0.1;
-        velocity *= 0.9 + 0.1 * abs(sin(time));
-        vPosition = position;
-        vVelocity = velocity;
-      }</script><script id=fs_transform type=x-shader/x-fragment>#version 300 es
-      precision highp float;
-  
-      out vec4 outColor;
-  
-      void main(void){
-        outColor = vec4(1.0);
-      }</script><script id=vs_main type=x-shader/x-vertex>#version 300 es
-      layout (location = 0) in vec3 position;
-      layout (location = 1) in vec3 normal;
-      layout (location = 2) in vec3 iPosition;
-      layout (location = 3) in vec3 iVelocity;
-      layout (location = 4) in vec4 iColor;
-  
-      uniform mat4 mvpMatrix;
-      uniform mat4 invMatrix;
-  
-      out vec4 vColor;
-  
-      void main(void){
-        vColor = iColor * (vec4(clamp(vec3(iVelocity.x) * 0.1, 0.0, 1.0), 1.0) + vec4(clamp(vec3(iVelocity.y) * 0.1, 0.0, 1.0), 1.0) + vec4(clamp(vec3(iVelocity.z) * 0.1, 0.0, 1.0), 1.0)) / 3.0;
-        vec3 pos = position + iPosition;
-        gl_Position = mvpMatrix * vec4(pos, 1.0);
-      }</script><script id=fs_main type=x-shader/x-fragment>#version 300 es
-      precision highp float;
-  
-      in vec4  vColor;
-  
-      out vec4 outColor;
-  
-      void main(void){
-        outColor = vColor;
-      }</script><link href=/Portfolio/css/about.88f9b835.css rel=prefetch><link href=/Portfolio/js/about.7c203c6c.js rel=prefetch><link href=/Portfolio/css/app.ca74d7b1.css rel=preload as=style><link href=/Portfolio/js/app.352ffef0.js rel=preload as=script><link href=/Portfolio/js/chunk-vendors.fbe0c52d.js rel=preload as=script><link href=/Portfolio/css/app.ca74d7b1.css rel=stylesheet></head><body><noscript><strong>We're sorry but portfolio doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/Portfolio/js/chunk-vendors.fbe0c52d.js></script><script src=/Portfolio/js/app.352ffef0.js></script></body></html><style>body {
-  background-color: black;
-  margin: 0;  
-}</style>
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/Portfolio/favicon.ico><link href="https://fonts.googleapis.com/css2?family=Sarpanch&display=swap" rel=stylesheet><link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel=stylesheet><link href=https://fonts.googleapis.com/earlyaccess/hannari.css rel=stylesheet><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel=stylesheet><title>Taichi Uchida</title><script type=x-shader/x-vertex id=vs>attribute vec3 position;
+
+    void main(void) {
+        gl_Position = vec4(position, 1.0);
+    }</script><script type=x-shader/x-fragment id=fs>precision mediump float;
+
+    uniform float time;
+    uniform float range;
+    uniform float seed;
+    uniform float scale;
+    uniform float move;
+    uniform float stepThres;
+    uniform vec2 resolution;
+
+    float rand(vec2 co) {
+        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+    }
+
+    void main() {
+      vec4 color1 = vec4(vec3(0.0), 1.0);
+      vec4 color2;
+      vec2 st = (2.0 * gl_FragCoord.xy - resolution) / resolution;
+      st = (st + 1.0) * 0.5;
+      st.t *= scale;
+      st.s += -rand(vec2(floor(st.s * range), seed)) * time;
+      color2 = vec4(vec3(step(rand(floor(st)), stepThres)), 1.0);
+      float stripe1 = step(fract(st.t + move), 0.5);
+      float stripe2 = step(fract(st.t + move + 0.5), 0.5);
+      gl_FragColor = color1 * stripe1 + color2 * stripe2;
+    }</script><link href=/Portfolio/css/chunk-107b4e83.246cb5d2.css rel=prefetch><link href=/Portfolio/css/chunk-16c9701e.0b3abe3c.css rel=prefetch><link href=/Portfolio/css/chunk-4b78e528.af44dc8f.css rel=prefetch><link href=/Portfolio/js/chunk-107b4e83.304a11af.js rel=prefetch><link href=/Portfolio/js/chunk-16c9701e.9bb3be7c.js rel=prefetch><link href=/Portfolio/js/chunk-4b78e528.19fe2d7d.js rel=prefetch><link href=/Portfolio/css/app.ea27d3aa.css rel=preload as=style><link href=/Portfolio/js/app.febe9477.js rel=preload as=script><link href=/Portfolio/js/chunk-vendors.eff61ac6.js rel=preload as=script><link href=/Portfolio/css/app.ea27d3aa.css rel=stylesheet></head><body><noscript><strong>We're sorry but portfolio doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/Portfolio/js/chunk-vendors.eff61ac6.js></script><script src=/Portfolio/js/app.febe9477.js></script></body></html>
