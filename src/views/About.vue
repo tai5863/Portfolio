@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <Header></Header>
-    <MixedColorNoise></MixedColorNoise>
+    <MixedColorNoise :colors="colors"></MixedColorNoise>
     <div class="about_container">
       <div class="container">
         <div class="photo_container"><img class="photo" src="@/assets/MyProfile.jpg"></div>
@@ -33,6 +33,7 @@ export default {
   },
   data () {
     return {
+      colors: [[1.0, 0.0, 0.0], [1.0, 1.0, 1.0]],
       items: [
         { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
         { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
@@ -57,6 +58,11 @@ export default {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.about_container::-webkit-scrollbar {
+  display: none;
 }
 .about_container .container {
   position: absolute;
@@ -87,7 +93,7 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 50px;
+  font-size: min(50px, 3vw);
   line-height: 70px;
 
   color: #FFFFFF;
@@ -100,7 +106,7 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 39px;
+  font-size: min(39px, 1.8vw);
   line-height: 55px;
 
   color: #FFFFFF;
@@ -111,7 +117,7 @@ export default {
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
+  font-size: min(20px, 1vw);
   line-height: 36px;
 
   color: #FFFFFF;
@@ -120,7 +126,7 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 27px;
+  font-size: min(27px, 1.5vw);
   line-height: 38px;
 
   color: #FFFFFF;

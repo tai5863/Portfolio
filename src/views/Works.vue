@@ -1,6 +1,6 @@
 <template>
   <div class="works">
-    <MixedColorNoise></MixedColorNoise>
+    <MixedColorNoise :colors="colors"></MixedColorNoise>
     <Header></Header>
     <div class="works_container">
       <div class="container">
@@ -28,6 +28,7 @@ export default {
   },
   data(){
     return {
+      colors: [[0.0, 0.0902, 0.498], [0.0, 0.7333, 1.0]],
       works: [
         { 
           name: 'Kasuga Shinkan 2020 Information', 

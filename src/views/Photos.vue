@@ -1,23 +1,24 @@
 <template>
-  <div class="photos">
-    <h2 class="photos_title">Photos</h2>
-    <div class="message_container begin">
-      <p class="message begin">これは、僕が好きな景色たちです。</p>
-    </div>
-    <div id="photos_container">
-      <ul>
-        <span v-for="(image, index) in images" :key="image"><img class="img" :id="'img' + index" :src="image"></span>
-      </ul>
-    </div>
-    <div class="message_container end">
-      <h3 class="message end" id="message_end">And more...</h3>
+  <div class="picture">
+    <Header></Header>
+    <div class="picture_container">
+      <div class="container">
+        <ul>
+          <span v-for="(image, index) in images" :key="image"><img class="img" :id="'img' + index" :src="image"></span>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+
 export default {
-  name: 'Photos',
+  name: 'Picture',
+  components: {
+    Header,
+  },
   data(){
     return {
       images: [ 
@@ -89,54 +90,25 @@ export default {
 </script>
 
 <style scoped>
-@keyframes show {
-	0% {
-		transform: translate(0, 2em);
-		opacity: 0;
-  }
-	100% {
-		transform: translate(0, 0);
-		opacity: 1;
-	}
-}
-.photos {
+.picture_container {
+  background-color: #101011;
+  position: relative;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0);
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.picture_container::-webkit-scrollbar {
+  display: none;
+}
+.picture_container .container {
   position: absolute;
-  top: 20%;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
-.photos_title {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-}
-.message_container.begin {
-  margin-top: 50px;
-}
-.message.begin::before {
-  opacity: 1;
-}
-.message.begin {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.2s;
-  -webkit-animation-delay: 0.2s;
-  color: white;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
-}
-#photos_container {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.4s;
-  -webkit-animation-delay: 0.4s;
-  margin-top: 50px;
-  padding: 0 8.5%;
-}
-#photos_container ul {
+.picture_container ul {
   list-style: none;
   display: flex;
   -ms-flex-flow: row wrap;
@@ -144,7 +116,7 @@ export default {
   margin: 0 auto;
   padding: 0;
 }
-#photos_container span {
+.picture_container span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,35 +127,8 @@ export default {
   transform: scale(0.9);
   text-align: -webkit-match-parent;
 }
-#photos_container span:hover {
-  transform: scale(0.975);
-}
 img {
   width: 100%;
   height: auto;
-}
-.message_container.end {
-  margin: 0;
-  min-height: 150px;
-}
-#message_end {
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  opacity: 0;
-  transition-duration: 0.6s;
-}
-
-@media screen and (max-width: 800px){
-  #photos_container ul {
-    justify-content: center;
-  }
-  #photos_container span {
-    width: 90%;
-  }
-  .img {
-    margin: 50px 0;
-  }
 }
 </style>

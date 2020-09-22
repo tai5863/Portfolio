@@ -65,9 +65,9 @@ export default {
           function renderRandomFlow(time) {
             gl.useProgram(program);
             gl.uniform1f(uniforms['time'], time);
-            gl.uniform1f(uniforms['range'], 10.0);
+            gl.uniform1f(uniforms['range'], 50.0);
             gl.uniform1f(uniforms['seed'], 0.7);
-            gl.uniform1f(uniforms['scale'], 7.0);
+            gl.uniform1f(uniforms['scale'], 30.0);
             gl.uniform1f(uniforms['move'], 0.25);
             gl.uniform1f(uniforms['stepThres'], stepThres);
             gl.uniform2fv(uniforms['resolution'], [canvas.width, canvas.height]);
@@ -78,7 +78,6 @@ export default {
           let time = 0;
           let count = 0;
           let stepThres = Math.random();
-          
 
           loop();
 
@@ -90,10 +89,11 @@ export default {
             gl.clear(gl.COLOR_BUFFER_BIT);
 
             let currentRealSeconds = new Date().getTime();
-            let dt = (currentRealSeconds - previousRealSeconds) * 0.005;
+            let dt = (currentRealSeconds - previousRealSeconds) * 0.001;
             time += dt;
-            if ((time - count) > 1.5) {
-              count += 1.5;
+            if ((time - count) > 2.0) {
+              count += 2.0;
+              time = 0.0;
               stepThres = Math.random();
             }
 

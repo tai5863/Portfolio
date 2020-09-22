@@ -62,7 +62,10 @@ export default {
 .home_header_comp {
   position: absolute;
   width: 100vw;
-  top: 5%;
+  top: 50%;
+  left: 0%;
+   transform: translateY(-50%);
+  z-index: 1000;
 }
 .home_header_container .header_ul {
   position: relative;
@@ -72,7 +75,7 @@ export default {
   justify-content: space-between;
   padding: 0;
 }
-li {
+.home_header_container li {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
@@ -80,23 +83,25 @@ li {
   line-height: 63px;
   text-align: center;
 
-  color: #C9C9C9;
+  color: #FFFFFF;
+
+  margin: 0 auto;
 }
 #picture_nav {
   text-decoration: none;
-  color: #C9C9C9;
+  color: #FFFFFF;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
 }
 #works_nav {
   text-decoration: none;
-  color: #C9C9C9;
+  color: #FFFFFF;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
 }
 #about_nav {
   text-decoration: none;
-  color: #C9C9C9;
+  color: #FFFFFF;
   transition-duration: 0.5s;
   -webkit-transition-duration: 0.5s;
 }

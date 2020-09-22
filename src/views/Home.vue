@@ -1,28 +1,32 @@
 <template>
   <div class="home">
-    <RandomFlow></RandomFlow>
     <HomeHeader></HomeHeader>
-    <div class="name_container">
-      <h1 class="name">Taichi Uchida</h1>
+    <ScaledMixedColorNoise></ScaledMixedColorNoise>
+    <div class="home_container">
+      <div class="name_container">
+        <h1 class="name">Taichi Uchida</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue'
-import RandomFlow from '@/components/RandomFlow.vue'
+import ScaledMixedColorNoise from '@/components/ScaledMixedColorNoise.vue'
 
 export default {
   neme: 'Home',
   components: {
     HomeHeader,
-    RandomFlow
+    ScaledMixedColorNoise
   },
 }
 </script>
 
 <style scoped>
-.home {
+.home_container {
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
   width: 100vw;
   height: 100vh;
 }
@@ -30,8 +34,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 95px;
-  left: 10%;
-  bottom: 10%;
+  bottom: 15%;
 }
 .name {
   position: relative;
@@ -41,8 +44,10 @@ export default {
   font-weight: normal;
   font-size: 70px;
   line-height: 98px;
-  text-align: left;
+  text-align: center;
 
-  color: #C9C9C9;
+  color: #FFFFFF;
+  
+  margin: 0;
 }
 </style>

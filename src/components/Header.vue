@@ -68,7 +68,7 @@ export default {
 .header_container {
   width: 85%;
   border-bottom: solid #FFFFFF;
-  margin: 50px 0 50px auto;
+  margin: 100px 0 100px auto;
   padding: 0 0 0 100px;
   display: flex;
   justify-content: space-between;
@@ -78,7 +78,7 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 60px;
+  font-size: min(60px, 3vw);
   line-height: 84px;
   text-align: center;
 
@@ -99,11 +99,11 @@ export default {
   justify-content: flex-end;
   padding: 0;
 }
-.header_ul li {
+.header_container li {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 35px;
+  font-size: min(35px, 2vw);
   line-height: 49px;
   text-align: center;
 

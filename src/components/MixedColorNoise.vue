@@ -7,10 +7,15 @@
 <script>
 export default {
   name: "MixedColorNoise",
+  props: {
+    colors: Array
+  },
   data () {
     const canvas = null;
+    let renderColors = this.colors;
     return {
-      canvas
+      canvas,
+      renderColors
     }
   },
   mounted () {
@@ -22,6 +27,8 @@ export default {
         const canvas = this.canvas;
         
         const gl = canvas.getContext('webgl');
+
+        const _this = this;
 
         const resizeCanvas = () => {
           canvas.width = document.body.clientWidth;
@@ -41,7 +48,7 @@ export default {
         
         let program = createProgram('vs', 'mixed_color_noise_fs');
 
-        let uniforms = getUniformLocations(program, ['time', 'scale', 'noiseScale', 'wheel', 'resolution']);
+        let uniforms = getUniformLocations(program, ['col1', 'col2', 'time', 'scale', 'noiseScale', 'wheel', 'resolution']);
 
         render();
 
@@ -69,6 +76,8 @@ export default {
 
           function renderNoise(time) {
             gl.useProgram(program);
+            gl.uniform3fv(uniforms['col1'], _this.renderColors[0]);
+            gl.uniform3fv(uniforms['col2'], _this.renderColors[1]);
             gl.uniform1f(uniforms['time'], time);
             gl.uniform1f(uniforms['scale'], 1.0);
             gl.uniform1f(uniforms['noiseScale'], 3.0);
