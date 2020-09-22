@@ -1,31 +1,36 @@
 <template>
   <div class="about">
-    <h1 class="about_title">About</h1>
-    <div class="message_container begin">
-      <p class="message begin">これは、僕の自己紹介です。</p>
-    </div>
-    <div id="about_container">
-      <div class="content" id="photo_container"><img class="me_photo" src="@/assets/MyProfile.jpg"></div>
-      <div class="content">
-        <h2>Taichi Uchida</h2>
-        <div class="intro_container"><p class="me_intro">2001年、京都府出身。2019年より筑波大学情報メディア創成学類に所属。</p></div>
-        <div class="intro_container"><p class="me_intro">目に見える何かを作ることが好き。プログラミングを用いた映像表現やWebフロント、写真などに興味を持つ。</p></div>
-        <div class="skills_container">
-          <p class="me_skills">WebGL, TouchDesigner, Vue.js, javascript, python</p>
+    <Header></Header>
+    <MixedColorNoise></MixedColorNoise>
+    <div class="about_container">
+      <div class="container">
+        <div class="photo_container"><img class="photo" src="@/assets/MyProfile.jpg"></div>
+        <div class="intro_container">
+          <h1 class="name">Taichi Uchida</h1>
+          <h2 class="position">Visual Artist / Programmer</h2>
+          <p class="intro">2001年、京都府出身。2019年より筑波大学情報メディア創成学類に所属。目に見える何かを作ることが好き。プログラミングを用いた映像表現やWebフロント、写真などに興味を持つ。</p>
+          <p class="skills">WebGL / TouchDesigner / GLSL</p>
+          <nav class="accounts">
+            <ul class="footer_ul">
+              <li v-for="item in items" :key="item.id"><a><img class="icon" :src="item.icon" border="0" width="25" @click="openLink(item.link)"></a></li>
+            </ul>
+          </nav>
         </div>
-        <nav class="me_accounts">
-          <ul class="footer_ul">
-            <li v-for="item in items" :key="item.id"><a><img class="icon" :src="item.icon" border="0" width="25" @click="openLink(item.link)"></a></li>
-          </ul>
-        </nav>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script> 
+import Header from '@/components/Header.vue'
+import MixedColorNoise from '@/components/MixedColorNoise.vue'
+
 export default {
   name: 'About',
+  components: {
+    Header,
+    MixedColorNoise
+  },
   data () {
     return {
       items: [
@@ -47,97 +52,80 @@ export default {
 </script>
 
 <style scoped>
-@keyframes show {
-	0% {
-		transform: translate(0, 2em);
-		opacity: 0;
-	}
-	100% {
-		transform: translate(0, 0);
-		opacity: 1;
-	}
-}
-.about {
-  position: absolute;
-  top: 20%;
+.about_container {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
   width: 100vw;
+  height: 100vh;
 }
-.about_title {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  font-family: 'Segoe UI';
-  color: black;
-  font-size: 30px;
-  text-align: center;
+.about_container .container {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
 }
-.message_container.begin {
-  margin-top: 50px;
-}
-.message.begin {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.2s;
-  -webkit-animation-delay: 0.2s;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
-}
-#about_container {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.4s;
-  -webkit-animation-delay: 0.4s;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-auto-rows: 1fr;
-  grid-gap: 0.8em;
-  padding: 50px 8.5%;
-  margin: 0;
-}
-#about_container > .content {
-  overflow: auto;
-  padding: 1em;
-}
-#photo_container {
+.photo_container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-h2 {
-  font-size: 30px;
-}
-.me_photo {
+.photo {
   width: 50%;
-  max-width: 250px;
-  text-align: center;
-  border-radius: 1px;
-  margin: 0 auto;
-}
-.me_intro {
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
-  text-align: center;
 }
 .intro_container {
-  margin-top: 30px;
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 50%;
+  padding: 30px 50px;
 }
-.skills_container {
-  margin-top: 3%;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.about_container .name {
+  text-align: left;
+
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 70px;
+
+  color: #FFFFFF;
+
+  margin: 0;
 }
-h3 {
-  margin-top: 30px;
-  color: black;
+.position {
+  text-align: left;
+
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 39px;
+  line-height: 55px;
+
+  color: #FFFFFF;
 }
-.me_skills {
-  margin-top: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 500;
+.intro {
+  text-align: left;
+
+  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 36px;
+
+  color: #FFFFFF;
 }
-.me_accounts {
+.skills {
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 27px;
+  line-height: 38px;
+
+  color: #FFFFFF;
+}
+.accounts {
   margin: 0 auto;
   max-width: 200px;
 }
@@ -149,34 +137,6 @@ h3 {
 }
 .icon {
   cursor: pointer;
-}
-@media screen and (max-width: 979px) {
-  .me_intro {
-    display: inline-block;
-  }
-  #about_container {
-    display: block;
-    padding: 8% 8.5%;
-  }
-  #about_container > .content {
-    overflow: auto;
-    padding: 3%;
-  }
-  .me_photo {
-    width: 60%;
-  }
-}
-@media screen and (max-width: 480px) {
-  #about_container {
-    margin-bottom: 70px;
-  }
-  #about_container > .content {
-    overflow: auto;
-    padding: 5%;
-  }
-  .me_photo {
-    width: 70%;
-  }
 }
 </style>
 

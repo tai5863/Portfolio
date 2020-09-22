@@ -1,61 +1,57 @@
 <template>
-  <div id="works">
-    <h2 class="works_title">Works</h2>
-    <div class="message_container begin">
-      <p class="message begin">これは、僕の作品たちです。</p>
-    </div>
+  <div class="works">
+    <MixedColorNoise></MixedColorNoise>
+    <Header></Header>
     <div class="works_container">
-      <ul style="padding: 0; list-style: none;">
-        <li v-for="work in works" :key="work.key">
-          <h2 class="work_title">{{ work.name }}</h2>
-          <div class="message_container work">
-            <p class="message work">{{ work.message1 }}</p>
-            <p class="message work" v-if="work.message2">{{ work.message2 }}</p>
-          </div>
+      <div class="container">
+        <div v-for="work in works" :key="work.key" class="work" :id="work.name">
+          <h1 class="work_title">{{ work.name }}</h1>
+          <p class="work_date">{{ work.date }}</p>
           <div class="img_container">
-            <ul style="padding: 0; list-style: none;">
-              <li><img :src="work.image1" class="img first" @click="openLink(work.url1)"></li>
-              <li><img :src="work.image2" class="img" @click="openLink(work.url2)" v-if="work.image2"></li>
-            </ul>
+            <img :src="work.image" class="img first" @click="openLink(work.url)">
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
+import MixedColorNoise from '@/components/MixedColorNoise.vue'
+
 export default {
   name: 'Works',
+  components: {
+    Header,
+    MixedColorNoise
+  },
   data(){
     return {
       works: [
         { 
-          name: '春日新歓2020情報Web', 
+          name: 'Kasuga Shinkan 2020 Information', 
           message1: '筑波大学春日エリアをメインの活動場所とする情報メディア創成学類と図書館情報学類が行った春日新歓のWebサイト。', 
           message2: 'デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った。', 
-          image1: require('@/assets/春日新歓情報Web1.png'),
-          image2: require('@/assets/春日新歓情報Web2.png'),
-          url1: 'https://kasugashinkan.com/?#/',
-          url2: 'https://kasugashinkan.com/?#/'
+          image: require('@/assets/春日新歓情報Web1.png'),
+          date: '2020.04',
+          url: 'https://kasugashinkan.com/?#/',
         },
-        {
-          name: 'TouchDesigner Works', 
-          message1: 'TouchDesignerで制作したグラフィック表現。', 
-          message2: '学内サークルTMP主催のイベント「tonight!」にてVJも行った。', 
-          image1: require('@/assets/TD1.png'),
-          image2: require('@/assets/TD2.png'),
-          url1: '',
-          url2: ''
+        { 
+          name: 'Snap Photos', 
+          message1: '筑波大学春日エリアをメインの活動場所とする情報メディア創成学類と図書館情報学類が行った春日新歓のWebサイト。', 
+          message2: 'デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った。', 
+          image: require('@/assets/DSC_0337.jpg'),
+          date: '2019 - 2020',
+          url: '',
         },
         {
           name: 'WebGL Demos', 
           message1: 'WebGLを用いたデモ。', 
           message2: '「Instancing with TransformFeedback」や「Particle Transition」などがある。', 
-          image1: require('@/assets/WebGL1.png'),
-          image2: require('@/assets/WebGL2.png'),
-          url1: 'https://tai5863.github.io/ParticleTransition/',
-          url2: 'https://tai5863.github.io/InstancingWithTransformFeedback/'
+          image: require('@/assets/WebGL1.png'),
+          date: '2019 - 2020',
+          url: 'https://tai5863.github.io/ParticleTransition/',
         },
       ]
     }
@@ -68,105 +64,62 @@ export default {
       if (link != '') {
         window.open(link);
       }
-    }
+    },
   }
 }
 </script>
 
 <style scoped>
-@keyframes show {
-	0% {
-		transform: translate(0, 2em);
-		opacity: 0;
-	}
-	100% {
-		transform: translate(0, 0);
-		opacity: 1;
-	}
-}
-#works {
-  position: absolute;
-  top: 20%;
-  width: 100vw;
-}
-.works_title {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: black;
-  font-size: 30px;
-  text-align: center;
-}
-.message_container.begin {
-  margin-top: 50px;
-}
-.message.begin {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.2s;
-  -webkit-animation-delay: 0.2s;
-  color: black;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
-}
 .works_container {
-  animation: show 0.6s both;
-  -webkit-animation: show 0.6s both;
-  animation-delay: 0.4s;
-  -webkit-animation-delay: 0.4s;
-  margin-top: 50px;
-  text-align: center; 
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
-.works_container li {
-  padding-bottom: 50px;
+.works_container::-webkit-scrollbar {
+  display: none;
+}
+.works_container .container {
+  position: absolute;
+  top: 30%;
 }
 .work_title {
-  color: white;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 46px;
+  line-height: 64px;
+  text-align: center;
+
+  color: #FFFFFF;
 }
-.message_container.work {
-  margin-top: 50px;
-  margin-left: 100px;
-  margin-right: 100px;
+.work_date {
+  position: relative;
+  text-align: right;
+  margin: 0;
+  right: 25%;
+
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 36px;
+
+  color: #E0E0E0;
 }
-.message.work {
-  color: white;
-  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
-  font-weight: 1000;
-  line-height: 35px;
+.work {
+  margin-bottom: 50px;
 }
 .img_container {
-  margin-top: 50px;
+  text-align: center;
 }
 .img {
+  margin: 0 auto;
   width: 50%; 
   min-width: 500px;
   cursor: pointer;
-  margin-top: 45px;
-}
-.img.first {
-  margin-top: 30px;
-}
-@media screen and (max-width: 979px) {
-  .works_container {
-    display: block;
-  }
-  .img {
-    min-width: 300px;
-  } 
-}
-@media screen and (max-width: 480px) {
-  .works_container li {
-    padding-bottom: 30px;
-  }
-  .img {
-    min-width: 250px;
-  }
-  .message_container.work {
-    margin-left: 80px;
-    margin-right: 80px;
-  }
 }
 </style>
 

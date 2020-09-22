@@ -1,36 +1,25 @@
 <template>
   <div class="header_comp">
     <div class="header_container">
+      <h1 class="name"><router-link to="/" style="text-decoration: none; color: #FFFFFF">Taichi Uchida</router-link></h1>
       <nav class="nav_for_sections">
         <ul class="header_ul">
           <li v-for="section in sections" :key="section.id"><router-link :to="'/' + section" :id="section + '_nav'">{{ section }}</router-link></li>
         </ul>
       </nav>
-      <img src="@/assets/menu-icon.png" width="25px" class="menu" @click="pushMenu">
     </div>
-    <transition name="fade">
-      <Menu v-if="isMenu" @close="closeMenu"></Menu>
-    </transition>
   </div>
 </template>
 
 <script>
-import Menu from '@/components/Menu'
 
 export default {
   name: 'Header',
   components: {
-    Menu
   },
   data () {
     return {
-      isMenu: false,
       sections: ['works', 'about', 'picture'],
-      items: [
-        { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
-        { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
-        { icon: require('@/assets/git-icon.png'), link: 'https://github.com/tai5863/' }
-      ]
     }
   },
   watch: {
@@ -67,83 +56,71 @@ export default {
       }
     }
   },
-  methods: {
-    openLink: function(link){
-      window.open(link);
-    },
-    pushMenu: function(){
-      this.isMenu = true;
-    },
-    closeMenu: function(){
-      this.isMenu = false;
-    }
-  }
 }
 </script>
 
 <style>
 .header_comp {
+  position: absolute;
   width: 100vw;
-  position: fixed;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0);
+  z-index: 1000;
+}
+.header_container {
+  width: 85%;
+  border-bottom: solid #FFFFFF;
+  margin: 50px 0 50px auto;
+  padding: 0 0 0 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.header_container .name {
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 84px;
+  text-align: center;
+
+  color: #FFFFFF;
+  
+  margin: 0;
+  left: 10%;
+}
+.header_container .nav_for_sections {
+  position: relative; 
+  width: 70%;
+  margin: 0 auto 0 0;
 }
 .header_container .header_ul {
-  font-family:'Segoe UI';
-  font-weight: bold;
-  font-size: 21px;
+  position: relative;
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  margin-top: 50px;
-  height: 50px;
+  padding: 0;
 }
-.header_container .header_ul li {
-  margin-right: calc(5% - 30px);
+.header_ul li {
+  font-family: Sarpanch;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 49px;
+  text-align: center;
+
+  color: #FFFFFF;
+
+  margin-left: calc(5% + 15px);
 }
-#photos_nav {
+#picture_nav {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.3);
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
+  color: #FFFFFF;
 }
 #works_nav {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.3);
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
+  color: #FFFFFF;
 }
 #about_nav {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.3);
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-}
-.menu {
-  display: none;
-}
-#menu {
-  display: none;
-}
-@media screen and (max-width: 480px) {
-  .header_container .header_ul {
-    display: none;
-  }
-  .menu {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    display: block;
-    cursor: pointer;
-  }
-  #menu {
-  display: block;
-}
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+  color: #FFFFFF;
 }
 </style>

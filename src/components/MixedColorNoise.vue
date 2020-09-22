@@ -1,12 +1,12 @@
 <template>
-  <div class="webgl_comp">
-    <canvas id="canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100vw; height: 100vh;"></canvas>
+  <div class="mixed_color_noise_comp" style="position: absolute; z-index: -1000;">
+    <canvas id="canvas"></canvas>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WebGL",
+  name: "MixedColorNoise",
   data () {
     const canvas = null;
     return {
@@ -15,8 +15,6 @@ export default {
   },
   mounted () {
     this.canvas = document.getElementById('canvas');
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
     this.runAll();
   },
   methods: {
@@ -26,17 +24,24 @@ export default {
         const gl = canvas.getContext('webgl');
 
         const resizeCanvas = () => {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+          canvas.width = document.body.clientWidth;
+          canvas.height = document.body.clientHeight;
         }
         addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
+        let wheel = 0.0;
+
+        const mouseWheel = () => {
+          wheel += 0.005;
+        }
+        addEventListener('mousewheel', mouseWheel);
+
         gl.viewport(0.0, 0.0, canvas.width, canvas.height);
         
-        let program = createProgram('vs', 'fs');
+        let program = createProgram('vs', 'mixed_color_noise_fs');
 
-        let uniforms = getUniformLocations(program, ['time', 'range', 'seed', 'scale', 'move', 'stepThres', 'resolution']);
+        let uniforms = getUniformLocations(program, ['time', 'scale', 'noiseScale', 'wheel', 'resolution']);
 
         render();
 
@@ -62,14 +67,12 @@ export default {
           gl.vertexAttribPointer(vAttLocation, 3, gl.FLOAT, false, 0, 0);
           gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, vIndex);
 
-          function renderRandomFlow(time) {
+          function renderNoise(time) {
             gl.useProgram(program);
             gl.uniform1f(uniforms['time'], time);
-            gl.uniform1f(uniforms['range'], 10.0);
-            gl.uniform1f(uniforms['seed'], 0.7);
-            gl.uniform1f(uniforms['scale'], 5.0);
-            gl.uniform1f(uniforms['move'], 0.25);
-            gl.uniform1f(uniforms['stepThres'], stepThres);
+            gl.uniform1f(uniforms['scale'], 1.0);
+            gl.uniform1f(uniforms['noiseScale'], 3.0);
+            gl.uniform1f(uniforms['wheel'], wheel);
             gl.uniform2fv(uniforms['resolution'], [canvas.width, canvas.height]);
             gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
           }
@@ -77,7 +80,6 @@ export default {
           let previousRealSeconds = new Date().getTime();
           let time = 0;
           let count = 0;
-          let stepThres = Math.random();
 
           loop();
 
@@ -89,16 +91,15 @@ export default {
             gl.clear(gl.COLOR_BUFFER_BIT);
 
             let currentRealSeconds = new Date().getTime();
-            let dt = (currentRealSeconds - previousRealSeconds) * 0.005;
+            let dt = (currentRealSeconds - previousRealSeconds) * 0.00005;
             time += dt;
             if ((time - count) > 1.5) {
               count += 1.5;
-              stepThres = Math.random();
             }
 
             previousRealSeconds = currentRealSeconds;
 
-            renderRandomFlow(time, stepThres);
+            renderNoise(time);
 
             gl.flush();
 

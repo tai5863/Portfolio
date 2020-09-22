@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <WebGL></WebGL>
+    <RandomFlow></RandomFlow>
     <HomeHeader></HomeHeader>
     <div class="name_container">
       <h1 class="name">Taichi Uchida</h1>
@@ -10,19 +10,18 @@
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue'
-import WebGL from '@/components/WebGL.vue'
+import RandomFlow from '@/components/RandomFlow.vue'
 
 export default {
   neme: 'Home',
   components: {
     HomeHeader,
-    WebGL
+    RandomFlow
   },
 }
 </script>
 
 <style scoped>
-
 .home {
   width: 100vw;
   height: 100vh;
