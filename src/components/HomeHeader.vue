@@ -64,7 +64,7 @@ export default {
   width: 100vw;
   top: 50%;
   left: 0%;
-   transform: translateY(-50%);
+  transform: translateY(-50%);
   z-index: 1000;
 }
 .home_header_container .header_ul {
@@ -79,7 +79,7 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 45px;
+  font-size: min(45px, 7vw);
   line-height: 63px;
   text-align: center;
 
@@ -90,19 +90,19 @@ export default {
 #picture_nav {
   text-decoration: none;
   color: #FFFFFF;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
 }
 #works_nav {
   text-decoration: none;
   color: #FFFFFF;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
 }
 #about_nav {
   text-decoration: none;
   color: #FFFFFF;
-  transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+  .home_header_container .header_ul {
+    display: block;
+  }
 }
 </style>

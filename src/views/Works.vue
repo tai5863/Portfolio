@@ -86,12 +86,15 @@ export default {
   position: absolute;
   top: 30%;
 }
+.work {
+  padding-bottom: 300px;
+}
 .work_title {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 46px;
-  line-height: 64px;
+  font-size: min(46px, 4vw);
+  line-height: min(64px, 3vh);
   text-align: center;
 
   color: #FFFFFF;
@@ -105,13 +108,10 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 25px;
+  font-size: min(25px, 2.5vw);
   line-height: 36px;
 
   color: #E0E0E0;
-}
-.work {
-  margin-bottom: 50px;
 }
 .img_container {
   text-align: center;
@@ -119,8 +119,20 @@ export default {
 .img {
   margin: 0 auto;
   width: 50%; 
-  min-width: 500px;
+  min-width: 300px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .work {
+    padding-bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .work_date {
+    right: calc((100vw - 300px) / 2);
+  }
 }
 </style>
 

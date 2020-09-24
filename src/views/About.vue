@@ -93,8 +93,8 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: min(50px, 3vw);
-  line-height: 70px;
+  font-size: min(50px, 4.5vw);
+  line-height: min(70px, 5vw);
 
   color: #FFFFFF;
 
@@ -106,8 +106,8 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: min(39px, 1.8vw);
-  line-height: 55px;
+  font-size: min(32px, 3.5vw);
+  line-height: min(55px, 4vw);
 
   color: #FFFFFF;
 }
@@ -117,8 +117,8 @@ export default {
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: min(20px, 1vw);
-  line-height: 36px;
+  font-size: min(20px, 2vw);
+  line-height: min(36px, 4vw);
 
   color: #FFFFFF;
 }
@@ -126,10 +126,12 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: min(27px, 1.5vw);
+  font-size: min(27px, 2.5vw);
   line-height: 38px;
 
   color: #FFFFFF;
+
+  margin: 50px 0;
 }
 .accounts {
   margin: 0 auto;
@@ -143,6 +145,36 @@ export default {
 }
 .icon {
   cursor: pointer;
+}
+
+@media screen and (max-width: 1620px) {
+  .intro_container {
+    width: 80%;
+    margin: 100px auto; 
+  }
+}
+@media screen and (max-width: 800px) {  
+  .about_container .container {
+    display: block;
+    top: 20%;
+  }
+  .photo {
+    width: 40%;
+    max-width: 300px;
+  }
+  .intro_container {
+    margin: 60px auto; 
+    padding: 20px 30px;
+  }
+  .skills {
+    margin: auto;
+  }
+  .icon {
+    transform: scale(0.8);
+  }
+  .accounts {
+    width: 70%;
+  }
 }
 </style>
 

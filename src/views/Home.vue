@@ -34,7 +34,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 95px;
-  bottom: 15%;
+  bottom: max(150px, 15%);
 }
 .name {
   position: relative;
@@ -42,7 +42,7 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: 70px;
+  font-size: min(70px, 9vw);
   line-height: 98px;
   text-align: center;
 

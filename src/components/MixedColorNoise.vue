@@ -31,8 +31,8 @@ export default {
         const _this = this;
 
         const resizeCanvas = () => {
-          canvas.width = document.body.clientWidth;
-          canvas.height = document.body.clientHeight;
+          canvas.width = document.body.scrollWidth;
+          canvas.height = document.body.scrollHeight;
         }
         addEventListener('resize', resizeCanvas);
         resizeCanvas();

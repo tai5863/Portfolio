@@ -27,19 +27,12 @@
       float stripe1 = step(fract(st.t + move), 0.5);
       float stripe2 = step(fract(st.t + move + 0.5), 0.5);
       gl_FragColor = color1 * stripe1 + color2 * stripe2;
-    }</script><script type=x-shader/x-fragment id=scaled_mixed_color_noise_fs>precision mediump float;
+    }</script><script type=x-shader/x-fragment id=scaled_mixed_color_noise_fs>precision highp float;
 
-    //
-    // Description : Array and textureless GLSL 2D/3D/4D simplex 
-    //               noise functions.
-    //      Author : Ian McEwan, Ashima Arts.
-    //  Maintainer : stegu
-    //     Lastmod : 20110822 (ijm)
-    //     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
-    //               Distributed under the MIT License. See LICENSE file.
-    //               https://github.com/ashima/webgl-noise
-    //               https://github.com/stegu/webgl-noise
-    // 
+    // Copyright (C) 2011 Ashima Arts. All rights reserved.
+    // Distributed under the MIT License. See LICENSE file.
+    // https://github.com/ashima/webgl-noise
+    // https://github.com/stegu/webgl-noise
 
     vec3 mod289(vec3 x) {
       return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -134,7 +127,13 @@
       }
       
     float rand(vec2 co) {
-        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+      vec3 product = vec3(  sin( dot(co, vec2(0.129898,0.78233))),
+                            sin( dot(co, vec2(0.689898,0.23233))),
+                            sin( dot(co, vec2(0.434198,0.51833))) );
+                            
+      vec3 weighting = vec3(4.37585453723, 2.465973, 3.18438);
+
+      return fract(dot(weighting, product));
     }
       
     uniform float time;
@@ -207,19 +206,12 @@
       }
       
       gl_FragColor = vec4(col, 1.0);
-    }</script><script type=x-shader/x-fragment id=mixed_color_noise_fs>precision mediump float;
+    }</script><script type=x-shader/x-fragment id=mixed_color_noise_fs>precision highp float;
 
-    //
-    // Description : Array and textureless GLSL 2D/3D/4D simplex 
-    //               noise functions.
-    //      Author : Ian McEwan, Ashima Arts.
-    //  Maintainer : stegu
-    //     Lastmod : 20110822 (ijm)
-    //     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
-    //               Distributed under the MIT License. See LICENSE file.
-    //               https://github.com/ashima/webgl-noise
-    //               https://github.com/stegu/webgl-noise
-    // 
+    // Copyright (C) 2011 Ashima Arts. All rights reserved.
+    // Distributed under the MIT License. See LICENSE file.
+    // https://github.com/ashima/webgl-noise
+    // https://github.com/stegu/webgl-noise
 
     vec3 mod289(vec3 x) {
       return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -314,9 +306,15 @@
       }
       
     float rand(vec2 co) {
-        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+      vec3 product = vec3(  sin( dot(co, vec2(0.129898,0.78233))),
+                            sin( dot(co, vec2(0.689898,0.23233))),
+                            sin( dot(co, vec2(0.434198,0.51833))) );
+                            
+      vec3 weighting = vec3(4.37585453723, 2.465973, 3.18438);
+
+      return fract(dot(weighting, product));
     }
-      
+
     uniform vec3 col1;
     uniform vec3 col2;
     uniform float time;
@@ -379,7 +377,7 @@
       }
       
       gl_FragColor = vec4(col, 1.0);
-    }</script><link href=/Portfolio/css/chunk-2081a237.b27031da.css rel=prefetch><link href=/Portfolio/css/chunk-612fb2d8.1eddd9cd.css rel=prefetch><link href=/Portfolio/css/chunk-fe10ecb6.2082d509.css rel=prefetch><link href=/Portfolio/js/chunk-2081a237.048779b5.js rel=prefetch><link href=/Portfolio/js/chunk-612fb2d8.f67fdcf4.js rel=prefetch><link href=/Portfolio/js/chunk-fe10ecb6.85d111ad.js rel=prefetch><link href=/Portfolio/css/app.62cf1507.css rel=preload as=style><link href=/Portfolio/js/app.5657d3d3.js rel=preload as=script><link href=/Portfolio/js/chunk-vendors.eff61ac6.js rel=preload as=script><link href=/Portfolio/css/app.62cf1507.css rel=stylesheet></head><body><noscript><strong>We're sorry but portfolio doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/Portfolio/js/chunk-vendors.eff61ac6.js></script><script src=/Portfolio/js/app.5657d3d3.js></script></body></html><style>body {
+    }</script><link href=/Portfolio/css/chunk-3c608f4c.0a481d7e.css rel=prefetch><link href=/Portfolio/css/chunk-70e8c031.cfeda227.css rel=prefetch><link href=/Portfolio/css/chunk-b52c27c2.9a762baa.css rel=prefetch><link href=/Portfolio/js/chunk-3c608f4c.34f03121.js rel=prefetch><link href=/Portfolio/js/chunk-70e8c031.60b6c6c5.js rel=prefetch><link href=/Portfolio/js/chunk-b52c27c2.5929e28a.js rel=prefetch><link href=/Portfolio/css/app.d94ced83.css rel=preload as=style><link href=/Portfolio/js/app.c1005de2.js rel=preload as=script><link href=/Portfolio/js/chunk-vendors.eff61ac6.js rel=preload as=script><link href=/Portfolio/css/app.d94ced83.css rel=stylesheet></head><body><noscript><strong>We're sorry but portfolio doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/Portfolio/js/chunk-vendors.eff61ac6.js></script><script src=/Portfolio/js/app.c1005de2.js></script></body></html><style>body {
   margin: 0;
   background-color: #101011;
   overflow: hidden;

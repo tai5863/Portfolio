@@ -131,4 +131,10 @@ img {
   width: 100%;
   height: auto;
 }
+
+@media screen and (max-width: 800px) {
+ .picture_container .container {
+   top: 15%;
+ } 
+}
 </style>
