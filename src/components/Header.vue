@@ -21,41 +21,7 @@ export default {
     return {
       sections: ['works', 'about', 'picture'],
     }
-  },
-  watch: {
-    '$route' (to) {
-      let route_list = ['/works', '/about', '/picture'];
-      let route_names = [];
-
-      for (let i = 0; i < route_list.length; i++) {
-        route_names.push(route_list[i].slice(1));
-      }
-
-      if (to.path != '/') {
-
-        let to_name = to.path.slice(1);
-        let result = route_names.filter(route_name => route_name != to_name);
-
-        let eRoute = document.getElementById(to_name + '_nav');
-        eRoute.style.color = 'black';
-        
-        for (let i = 0; i < result.length; i++) {
-          let eElse = document.getElementById(result[i] + '_nav');
-          eElse.style.color = 'rgba(0, 0, 0, 0.3)';
-        }
-
-      } else {
-
-        for (let i = 0; i < route_names.length; i++) {
-          let result = document.getElementById('photos_nav');
-          if (result) {
-            let eEach = document.getElementById(route_names[i] + '_nav');
-            eEach.style.color = 'rgba(0, 0, 0, 0.3)';
-          }
-        }
-      }
-    }
-  },
+  }
 }
 </script>
 
@@ -64,7 +30,7 @@ export default {
   position: absolute;
   top: 100px;
   width: 100vw;
-  z-index: 1000;
+  z-index: 1;
 }
 .header_container {
   width: 85%;
@@ -129,6 +95,10 @@ export default {
   .header_comp {
     top: 0;
   } 
+  .header_container {
+    width: 90%;
+    padding: 0 0 0 80px;
+  }
   .header_container li {
     line-height: 55px;
     margin-left: 15%;

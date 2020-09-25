@@ -13,7 +13,10 @@ Vue.use(VueRouter)
   {
     path: '/works',
     name: 'Works',
-    component: () => import('../views/Works.vue')
+    component: () => import('../views/Works.vue'),
+    children: [
+      { path: '/works/:tag', name:'Work', component: () => import('../views/Work.vue')}
+    ]
   },
   {
     path: '/about',
@@ -29,6 +32,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'hash',
+  props: null,
   base: process.env.BASE_URL,
   routes
 })

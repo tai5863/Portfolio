@@ -35,9 +35,9 @@ export default {
     return {
       colors: [[1.0, 0.0, 0.0], [1.0, 1.0, 1.0]],
       items: [
-        { icon: require('@/assets/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
-        { icon: require('@/assets/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
-        { icon: require('@/assets/git-icon.png'), link: 'https://github.com/tai5863/' }
+        { icon: require('@/assets/icons/twitter-icon.png'), link: 'https://twitter.com/_t_ai__' }, 
+        { icon: require('@/assets/icons/instagram-icon.png'), link: 'https://www.instagram.com/_t_ai__/'}, 
+        { icon: require('@/assets/icons/git-icon.png'), link: 'https://github.com/tai5863/' }
       ]
     }
   },
