@@ -10,10 +10,14 @@
             <h2 class="date">{{ work.date }}</h2>
           </div>
           <p class="message">{{ work.message1 }}</p>
+          <p class="message" v-if="work.message2">{{ work.message2 }}</p>
+          <p class="message url" v-if="work.url" @click="openLink(work.url)">{{ work.url }}</p>
         </div>
         <div class="photo_container">
           <img class="photo" :src="work.image1">
           <img class="photo" v-if="work.image2" :src="work.image2">
+          <img class="photo" v-if="work.image3" :src="work.image3">
+          <img class="photo" v-if="work.image4" :src="work.image4">
         </div>
       </div>
     </div>
@@ -57,7 +61,7 @@ export default {
 .work_container {
   z-index: 1000;
   box-shadow: 0px 0px 100px 40px rgba(0, 0, 0, 0.5) inset;
-  background-color: #7C0808;
+  background-color: #131313;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -115,6 +119,10 @@ export default {
 
   color: #FFFFFF;
   margin: 30px 0;
+}
+.url:hover {
+  text-decoration: underline solid #FFFFFF;
+  cursor: pointer;
 }
 .photo_container {
   text-align: center;

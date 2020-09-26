@@ -27,7 +27,7 @@ export default {
     Header,
     MixedColorNoise
   },
-  data(){
+  data () {
     return {
       colors: [[0.0, 0.0902, 0.498], [0.0, 0.7333, 1.0]],
       works: [
@@ -38,6 +38,8 @@ export default {
           message2: '', 
           image1: require('@/assets/works/playing_tokyo01.png'),
           image2: require('@/assets/works/playing_tokyo02.png'),
+          image3: require('@/assets/works/playing_tokyo03.png'),
+          image4: require('@/assets/works/playing_tokyo04.png'),
           date: '2020.09.25',
           url: 'https://playing.super-flying.tokyo/',
         },
