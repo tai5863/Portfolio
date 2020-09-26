@@ -50,7 +50,7 @@ export default {
         { 
           name: 'Unperpendiculaire mesdemoiselle', 
           tag: 'unperpendiculaire_mesdemoiselle',
-          massages: [
+          messages: [
             ' - Objet αによるエレクトロアコースティックライブのVJ・映像制作を担当した。', 
             '', 
           ],  
