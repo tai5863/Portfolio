@@ -3,13 +3,13 @@
     <router-view></router-view>
     <MixedColorNoise :colors="colors"></MixedColorNoise>
     <Header></Header>
-    <div class="works_container">
+    <div class="works_container" id="works_container">
       <div class="container">
-        <div v-for="work in works" :key="work.key" class="_work" :id="work.name">
+        <div v-for="work in works" :key="work.key" class="_work">
           <h1 class="work_title">{{ work.name }}</h1>
           <p class="work_date">{{ work.date }}</p>
           <div class="img_container">
-            <img :src="work.image1" class="img first" @click="openWork(work)">
+            <img :src="work.images[0]" class="img first" @click="openWork(work)">
           </div>
         </div>
       </div>
@@ -34,43 +34,75 @@ export default {
         { 
           name: 'Playing Tokyo', 
           tag: 'playing_tokyo',
-          message1: ' - RhizomatiksによるオンラインイベントPlayingTokyoにてVJを担当した。', 
-          message2: '', 
-          image1: require('@/assets/works/playing_tokyo01.png'),
-          image2: require('@/assets/works/playing_tokyo02.png'),
-          image3: require('@/assets/works/playing_tokyo03.png'),
-          image4: require('@/assets/works/playing_tokyo04.png'),
+          messages: [
+            ' - RhizomatiksによるオンラインイベントPlayingTokyoにてVJを担当した。', 
+            '', 
+          ],
+          images: [
+            require('@/assets/works/playing_tokyo01.png'),
+            require('@/assets/works/playing_tokyo02.png'),
+            require('@/assets/works/playing_tokyo03.png'),
+            require('@/assets/works/playing_tokyo04.png'),
+          ],
           date: '2020.09.25',
           url: 'https://playing.super-flying.tokyo/',
         },
         { 
           name: 'Unperpendiculaire mesdemoiselle', 
-          message1: ' - Objet αによるエレクトロアコースティックライブのVJ・映像制作を担当した。', 
-          message2: '', 
-          image1: require('@/assets/works/unperpendiculaire_mesdemoiselle01.jpg'),
+          tag: 'unperpendiculaire_mesdemoiselle',
+          massages: [
+            ' - Objet αによるエレクトロアコースティックライブのVJ・映像制作を担当した。', 
+            '', 
+          ],  
+          images: [
+            require('@/assets/works/unperpendiculaire_mesdemoiselle01.jpg'),
+          ],
           date: '2020.06.06',
           url: 'https://youtu.be/XqVY7cO24AU',
         },
         { 
           name: 'Staying Tokyo', 
-          message1: ' - ゲストVJ参加募集に応募し, RhizomatiksによるオンラインイベントStayingTokyoにてVJを担当した。', 
-          message2: '', 
-          image1: require('@/assets/works/staying_tokyo01.png'),
-          image2: require('@/assets/works/staying_tokyo02.png'),
+          tag: 'staying_tokyo',
+          messages: [
+            ' - ゲストVJ参加募集に応募し, RhizomatiksによるオンラインイベントStayingTokyoにてVJを担当した。', 
+            '', 
+          ],
+          images: [
+            require('@/assets/works/staying_tokyo01.png'),
+            require('@/assets/works/staying_tokyo02.png'),
+          ],
           date: '2020.05.22',
           url: 'https://staying.super-flying.tokyo/',
         },
         { 
           name: 'Kasuga Shinkan 2020 Information', 
-          message1: ' - 筑波大学春日エリアをメインの活動場所とする情報メディア創成学類と図書館情報学類が行った春日新歓のWebサイト。', 
-          message2: ' - デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った。', 
-          image1: require('@/assets/works/kasuga_shinkan01.png'),
-          image2: require('@/assets/works/kasuga_shinkan02.png'),
+          tag: 'kasuga_shinkan_2020_information',
+          messages: [
+            ' - 筑波大学春日エリアをメインの活動場所とする情報メディア創成学類と図書館情報学類が行った春日新歓のWebサイト。', 
+            ' - デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った。', 
+          ],
+          images: [
+            require('@/assets/works/kasuga_shinkan01.png'),
+            require('@/assets/works/kasuga_shinkan02.png'),
+          ],
+          cooperators: [{
+            name: 'Kazuki Yamaura',
+            'direction': 'Backend',
+            url: 'https://twitter.com/kzkymur',
+          }],
           date: '2020.04',
           url: 'https://kasugashinkan.com/?#/',
         }
       ]
     }
+  },
+  mounted () {
+    this.$nextTick(function() {
+      if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+        const vh = window.innerHeight;
+        document.getElementsByClassName('works_container')[0].style.height = vh + 'px';
+      }
+    });
   },
   destroyed: function() {
     window.scroll(0, 0);
@@ -143,7 +175,7 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
-  .work {
+  ._work {
     padding-bottom: 70px;
   }
 }

@@ -41,7 +41,7 @@ export default {
       ]
     }
   },
-  destroyed: function(){
+  destroyed () {
     window.scroll(0, 0);
   },
   methods: {

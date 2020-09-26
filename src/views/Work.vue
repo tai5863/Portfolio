@@ -9,15 +9,12 @@
             <h1 class="work_name">{{ work.name }}</h1>
             <h2 class="date">{{ work.date }}</h2>
           </div>
-          <p class="message">{{ work.message1 }}</p>
-          <p class="message" v-if="work.message2">{{ work.message2 }}</p>
-          <p class="message url" v-if="work.url" @click="openLink(work.url)">{{ work.url }}</p>
+          <p class="message" v-for="message in work.messages" :key="message.key">{{ message }}</p>
+          <p class="message url" v-if="work.url" @click="openLink(work.url)"> - Information : {{ work.url }}</p>
+          <p class="message cooperator" v-for="cooperator in work.cooperators" :key="cooperator.key"  @click="openLink(cooperator.url)"> - {{ cooperator.direction }} : {{ cooperator.name }}</p>
         </div>
         <div class="photo_container">
-          <img class="photo" :src="work.image1">
-          <img class="photo" v-if="work.image2" :src="work.image2">
-          <img class="photo" v-if="work.image3" :src="work.image3">
-          <img class="photo" v-if="work.image4" :src="work.image4">
+          <img class="photo" v-for="image in work.images" :key="image.key" :src="image">
         </div>
       </div>
     </div>
@@ -32,6 +29,14 @@ export default {
     return {
       work: this.$router.props
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+        const vh = window.innerHeight;
+        document.getElementsByClassName('work_container')[0].style.height = vh + 'px';
+      }
+    });
   },
   destroyed: function() {
     window.scroll(0, 0);
@@ -111,9 +116,9 @@ export default {
 .message {
   text-align: left;
 
-  font-family: Sarpanch;
+  font-family: Sarpanch, "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 500;
   font-size: min(25px, 3vw);
   line-height: min(38px, 4vw);
 
@@ -121,6 +126,10 @@ export default {
   margin: 30px 0;
 }
 .url:hover {
+  text-decoration: underline solid #FFFFFF;
+  cursor: pointer;
+}
+.cooperator:hover {
   text-decoration: underline solid #FFFFFF;
   cursor: pointer;
 }

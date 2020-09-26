@@ -26,7 +26,7 @@ Vue.use(VueRouter)
   {
     path: '/picture',
     name: 'Picture',
-    component: () => import('../views/Photos.vue')
+    component: () => import('../views/Picture.vue')
   },
 ]
 
