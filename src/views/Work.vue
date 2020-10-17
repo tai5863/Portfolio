@@ -161,7 +161,7 @@ export default {
     padding-top: 15%;
     width: 80vw;
  } 
- .photo {
+ .work_container .photo {
     margin: 30px 0;
  }
 }

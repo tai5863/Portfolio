@@ -63,7 +63,7 @@ export default {
   padding: 0;
 }
 .gallery_container span {
-  border: solid 10px black;
+  border: solid 8px black;
   background-color: black;
   margin: 10px 0;
   width: 30%;
@@ -76,6 +76,7 @@ export default {
 
 @media screen and (max-width: 800px) {
   .gallery_container span {
+    border: solid 5px black;
     width: 100%;
     margin: 30px 0 0;
   }
