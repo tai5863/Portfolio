@@ -141,7 +141,7 @@ export default {
   text-decoration: underline solid black;
   cursor: pointer;
 }
-.photo_container {
+.work_container .photo_container {
   text-align: center;
 
   display: flex;
@@ -150,7 +150,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.photo {
+.work_container .photo {
   width: 100%;
   min-width: 300px;
   margin: 80px 0;

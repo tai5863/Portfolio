@@ -60,13 +60,13 @@ export default {
   display: flex;
   height: 100%;
 }
-.photo_container {
+.about_container .photo_container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
 }
-.photo {
+.about_container .photo {
   width: 50%;
 }
 .intro_container {
