@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HomeHeader></HomeHeader>
-    <ScaledMixedColorNoise></ScaledMixedColorNoise>
+    <!--<ScaledMixedColorNoise></ScaledMixedColorNoise>-->
     <div class="home_container">
       <div class="name_container">
         <h1 class="name">Taichi Uchida</h1>
@@ -12,20 +12,19 @@
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue'
-import ScaledMixedColorNoise from '@/components/ScaledMixedColorNoise.vue'
+// import ScaledMixedColorNoise from '@/components/ScaledMixedColorNoise.vue'
 
 export default {
   neme: 'Home',
   components: {
     HomeHeader,
-    ScaledMixedColorNoise
+    // ScaledMixedColorNoise
   },
 }
 </script>
 
 <style scoped>
 .home_container {
-  background: rgba(0, 0, 0, 0.5);
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -45,8 +44,6 @@ export default {
   font-size: min(70px, 9vw);
   line-height: 98px;
   text-align: center;
-
-  color: #FFFFFF;
   
   margin: 0;
 }

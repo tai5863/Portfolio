@@ -18,7 +18,7 @@ export default {
   opacity: 1;
 }
 .v-enter-active {
-  transition: all 1s 0s ease;
+  transition: all 1.0s 0s ease;
 }
 .v-leave {
   opacity: 1;

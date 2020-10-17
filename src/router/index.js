@@ -14,9 +14,6 @@ Vue.use(VueRouter)
     path: '/works',
     name: 'Works',
     component: () => import('../views/Works.vue'),
-    children: [
-      { path: '/works/:tag', name:'Work', component: () => import('../views/Work.vue')}
-    ]
   },
   {
     path: '/about',
@@ -28,6 +25,11 @@ Vue.use(VueRouter)
     name: 'Picture',
     component: () => import('../views/Picture.vue')
   },
+  { 
+    path: '/works/:tag',
+    name:'Work',
+    component: () => import('../views/Work.vue')
+  }
 ]
 
 const router = new VueRouter({

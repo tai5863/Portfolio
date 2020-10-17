@@ -27,27 +27,23 @@ export default {
 
 <style>
 .header_comp {
-  position: absolute;
-  top: 100px;
-  width: 100vw;
+  margin-top: 100px;
   z-index: 1;
 }
 .header_container {
-  width: 85%;
+  margin: 0 9.5vw;
   height: 87px;
-  border-bottom: solid #FFFFFF;
-  float: right;
-  padding: 0 0 0 100px;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  background-color: #1d1d1d;
+  padding-left: min(130px, 8vw);
 }
 .header_container .name {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: min(60px, 4vw);
-  line-height: 84px;
+  font-size: min(45px, 3vw);
   text-align: center;
 
   color: #FFFFFF;
@@ -56,10 +52,12 @@ export default {
 }
 .header_container .nav_for_sections {
   position: relative; 
-  width: 60%;
+  width: 65%;
   margin: 0 auto 0 0;
 }
 .header_container .header_ul {
+  height: 100%;
+  margin: 0;
   position: relative;
   list-style: none;
   display: flex;
@@ -70,9 +68,9 @@ export default {
   font-family: Sarpanch;
   font-style: normal;
   font-weight: normal;
-  font-size: min(35px, 2.5vw);
-  line-height: 49px;
+  font-size: min(27px, 2vw);
   text-align: center;
+  border-bottom: solid 3px white;
 
   color: #FFFFFF;
 
@@ -88,20 +86,25 @@ export default {
 }
 #about_nav {
   text-decoration: none;
-  color: #FFFFFF;
+color: #FFFFFF;
 }
 
 @media screen and (max-width: 800px) {
   .header_comp {
     top: 0;
+    margin: 0;
   } 
   .header_container {
-    width: 90%;
-    padding: 0 0 0 80px;
+    margin: 0;
+    padding-left: 40px;
+  }
+  .header_container .name {
+    font-size: 4vw;
   }
   .header_container li {
-    line-height: 55px;
     margin-left: 15%;
+    border-bottom: solid 1px white;
+    font-size: 3vw;
   }
 }
 </style>
