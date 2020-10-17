@@ -25,14 +25,9 @@ export default {
     return {
       images: [
         require('@/assets/works/playing_tokyo01.png'),
-        require('@/assets/works/playing_tokyo02.png'),
-        require('@/assets/works/playing_tokyo03.png'),
-        require('@/assets/works/playing_tokyo04.png'),
         require('@/assets/works/unperpendiculaire_mesdemoiselle01.jpg'),
         require('@/assets/works/staying_tokyo01.png'),
-        require('@/assets/works/staying_tokyo02.png'),
         require('@/assets/works/kasuga_shinkan01.png'),
-        require('@/assets/works/kasuga_shinkan02.png'),
         require('@/assets/photos/DSC_0312.jpg'),
         require('@/assets/photos/DSC_0487.jpg'),
         require('@/assets/photos/DSC_0583.jpg'),
