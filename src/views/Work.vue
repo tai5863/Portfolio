@@ -15,7 +15,10 @@
           <p class="message cooperator" v-for="cooperator in work.cooperators" :key="cooperator.key"> - {{ cooperator.direction }} : {{ cooperator.name }}</p>
         </div>
         <div class="photo_container">
-          <img class="photo" v-for="image in work.images" :key="image.key" :src="image">
+          <v-lazy-image class="photo" :src="work.images[0]" />
+          <v-lazy-image class="photo" :src="work.images[1]" v-if="work.images[1]" />
+          <v-lazy-image class="photo" :src="work.images[2]" v-if="work.images[2]" />
+          <v-lazy-image class="photo" :src="work.images[3]" v-if="work.images[3]" />
         </div>
       </div>
     </div>

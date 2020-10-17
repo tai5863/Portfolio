@@ -13,6 +13,9 @@ export default {
 </script>
 
 <style>
+.footer_container {
+  margin-top: 100px;
+}
 .copy {
   color: rgb(140, 140, 140);
   text-align: center;

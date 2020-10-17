@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      sections: ['works', 'about', 'picture'],
+      sections: ['works', 'about', 'gallery'],
     }
   }
 }
@@ -76,7 +76,7 @@ export default {
 
   margin-left: calc(15% + 15px);
 }
-#picture_nav {
+#gallery_nav {
   text-decoration: none;
   color: #FFFFFF;
 }

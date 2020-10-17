@@ -12,13 +12,11 @@
 
 <script>
 import HomeHeader from '@/components/HomeHeader.vue'
-// import ScaledMixedColorNoise from '@/components/ScaledMixedColorNoise.vue'
 
 export default {
   neme: 'Home',
   components: {
     HomeHeader,
-    // ScaledMixedColorNoise
   },
 }
 </script>

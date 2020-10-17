@@ -9,7 +9,9 @@
           <h1 class="work_title">{{ work.name }}</h1>
           <p></p>
           <div class="img_container">
-            <img :src="work.images[0]" class="img first" @click="openWork(work)">
+            <div class="img_wrapper" @click="openWork(work)">
+              <v-lazy-image :src="work.images[0]" class="img first" />
+            </div>
           </div>
         </div>
       </div>
@@ -21,14 +23,12 @@
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-// import MixedColorNoise from '@/components/MixedColorNoise.vue'
 
 export default {
   name: 'Works',
   components: {
     Header,
-    Footer,
-    // MixedColorNoise
+    Footer
   },
   data () {
     return {
@@ -181,9 +181,13 @@ export default {
 .img_container {
   text-align: center;
 }
+.img_wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
 .img {
   margin: 0 auto;
-  width: 80%; 
+  width: 100%; 
   min-width: 300px;
   cursor: pointer;
 }
@@ -200,7 +204,7 @@ export default {
   .work_title {
     font-size: 3vw;
   }
-  .img {
+  .img_wrapper {
     width: 90%;
   }
 }

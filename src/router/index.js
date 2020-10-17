@@ -21,9 +21,9 @@ Vue.use(VueRouter)
     component: () => import('../views/About.vue')
   },
   {
-    path: '/picture',
-    name: 'Picture',
-    component: () => import('../views/Picture.vue')
+    path: '/gallery',
+    name: 'Gallery',
+    component: () => import('../views/Gallery.vue')
   },
   { 
     path: '/works/:tag',

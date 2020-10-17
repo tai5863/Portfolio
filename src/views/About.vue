@@ -1,7 +1,6 @@
 <template>
   <div class="about">
     <Header></Header>
-    <!--<MixedColorNoise :colors="colors"></MixedColorNoise>-->
     <div class="about_container">
       <div class="container">
         <div class="photo_container"><img class="photo" src="@/assets/MyProfile.jpg"></div>
@@ -26,14 +25,12 @@
 <script> 
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-// import MixedColorNoise from '@/components/MixedColorNoise.vue'
 
 export default {
   name: 'About',
   components: {
     Header,
     Footer,
-    // MixedColorNoise
   },
   data () {
     return {
@@ -58,7 +55,7 @@ export default {
 
 <style scoped>
 .about_container .container {
-  margin: auto;
+  margin: 150px auto;
   width: 81vw;
   display: flex;
   height: 100%;
@@ -67,15 +64,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
 }
 .photo {
-  width: 40%;
+  width: 50%;
 }
 .intro_container {
   display: flex;
   justify-content: left;
   align-items: center;
-  width: 80%;
 }
 .about_container .name {
   text-align: left;
@@ -120,9 +117,13 @@ export default {
 @media screen and (max-width: 1200px) {  
   .about_container .container {
     display: block;
+    margin: 15% auto;
+  }
+  .photo_container {
+    width: 100%;
   }
   .photo {
-    margin: 15% 0;
+    margin: 0 0 15%;
     width: 40%;
   }
   .intro_container {

@@ -18,7 +18,7 @@ export default {
   },
   data () {
     return {
-      sections: ['works', 'about', 'picture'],
+      sections: ['works', 'about', 'gallery'],
     }
   },
 }
@@ -51,7 +51,7 @@ export default {
 
   margin: 0 auto;
 }
-#home_picture_nav {
+#home_gallery_nav {
   text-decoration: none;
   color: black;
 }
