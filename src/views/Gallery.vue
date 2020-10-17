@@ -33,13 +33,13 @@ export default {
         require('@/assets/photos/DSC_0355.jpg'),
         require('@/assets/photos/DSC_0300.jpg'),
         require('@/assets/photos/DSC_0306.jpg'),
-        require('@/assets/photos/DSC_0341.jpg'),
+        require('@/assets/photos/DSC_0342.jpg'),
         require('@/assets/photos/DSC_0255.jpg'),
         require('@/assets/photos/DSC_0337.jpg'),
-        require('@/assets/photos/DSC_0032.jpg'),
+        require('@/assets/photos/DSC_0279.jpg'),
         require('@/assets/photos/DSC_0278.jpg'),
         require('@/assets/photos/DSC_0280.jpg'),
-        require('@/assets/photos/DSC_0188.jpg'),
+        require('@/assets/photos/DSC_0241.jpg'),
         require('@/assets/photos/DSC_0334.jpg'),
         require('@/assets/photos/DSC_0335.jpg'),
         require('@/assets/photos/DSC_0514.jpg'),
@@ -63,13 +63,21 @@ export default {
   padding: 0;
 }
 .gallery_container span {
-  display: flex;
-  margin: 1vw 0;
+  border: solid 10px black;
+  background-color: black;
+  margin: 10px 0;
   width: 30%;
   height: auto;
 }
-img {
+.img {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .gallery_container span {
+    width: 100%;
+    margin: 30px 0 0;
+  }
 }
 </style>

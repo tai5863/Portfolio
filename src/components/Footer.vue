@@ -14,7 +14,7 @@ export default {
 
 <style>
 .footer_container {
-  margin-top: 100px;
+  margin-top: 30px;
 }
 .copy {
   color: rgb(140, 140, 140);

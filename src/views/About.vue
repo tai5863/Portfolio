@@ -117,13 +117,13 @@ export default {
 @media screen and (max-width: 1200px) {  
   .about_container .container {
     display: block;
-    margin: 15% auto;
+    margin: 30% auto 0;
   }
   .photo_container {
     width: 100%;
   }
   .photo {
-    margin: 0 0 15%;
+    margin: 0 0 20%;
     width: 40%;
   }
   .intro_container {
