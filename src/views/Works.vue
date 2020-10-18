@@ -132,7 +132,7 @@ export default {
         new_element.style.color = "rgba(0, 0, 0, 0.0)";
         title.appendChild(new_element);
         let animation = new_element.animate([
-          { color: "rgba(0, 0, 0, 0.0)", backgroundColor: 'rgb(0, 0, 0)' },
+          { color: "rgba(0, 0, 0, 0.0)", backgroundColor: 'rgb(' + Math.random(index) * 255 + ', ' + Math.random(index + 1) * 255 + ', ' + Math.random(index + 2) * 255 + ')' },
           { color: "rgba(0, 0, 0, 1.0)" }
         ], {
           duration: 200,
