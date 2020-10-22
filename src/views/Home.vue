@@ -28,38 +28,6 @@ export default {
     }
   },
   data() {
-    return {
-      src: [
-        require('@/assets/works/playing_tokyo01.' + localStorage.format),
-        require('@/assets/works/playing_tokyo02.' + localStorage.format),
-        require('@/assets/works/playing_tokyo03.' + localStorage.format),
-        require('@/assets/works/playing_tokyo04.' + localStorage.format),
-        require('@/assets/works/unperpendiculaire_mesdemoiselle01.' + localStorage.format),
-        require('@/assets/works/staying_tokyo01.' + localStorage.format),
-        require('@/assets/works/staying_tokyo02.' + localStorage.format),
-        require('@/assets/works/kasuga_shinkan01.' + localStorage.format),
-        require('@/assets/works/kasuga_shinkan02.' + localStorage.format),
-        require('@/assets/photos/MyProfile.' + localStorage.format),
-        require('@/assets/photos/DSC_0312.' + localStorage.format),
-        require('@/assets/photos/DSC_0487.' + localStorage.format),
-        require('@/assets/photos/DSC_0583.' + localStorage.format),
-        require('@/assets/photos/DSC_0467.' + localStorage.format),
-        require('@/assets/photos/DSC_0469.' + localStorage.format),
-        require('@/assets/photos/DSC_0355.' + localStorage.format),
-        require('@/assets/photos/DSC_0300.' + localStorage.format),
-        require('@/assets/photos/DSC_0306.' + localStorage.format),
-        require('@/assets/photos/DSC_0342.' + localStorage.format),
-        require('@/assets/photos/DSC_0255.' + localStorage.format),
-        require('@/assets/photos/DSC_0337.' + localStorage.format),
-        require('@/assets/photos/DSC_0279.' + localStorage.format),
-        require('@/assets/photos/DSC_0278.' + localStorage.format),
-        require('@/assets/photos/DSC_0280.' + localStorage.format),
-        require('@/assets/photos/DSC_0241.' + localStorage.format),
-        require('@/assets/photos/DSC_0334.' + localStorage.format),
-        require('@/assets/photos/DSC_0335.' + localStorage.format),
-        require('@/assets/photos/DSC_0514.' + localStorage.format),
-      ]
-    }
   }
 }
 </script>
@@ -79,7 +47,7 @@ export default {
 .name {
   position: relative;
   
-  font-family: 'Kiona';
+  font-family: 'Kiona', 'Yu Gothic', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: min(50px, 9vw);
