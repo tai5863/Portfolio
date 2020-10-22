@@ -10,7 +10,7 @@
           <p></p>
           <div class="img_container">
             <div class="img_wrapper" @click="openWork(work)">
-              <v-lazy-image :src="work.images[0]" class="img first" />
+              <v-lazy-image :src="work.images[0]" class="img first" style="width: 100%"/>
             </div>
           </div>
         </div>
@@ -187,7 +187,6 @@ export default {
 }
 .img {
   margin: 0 auto;
-  width: 100%; 
   min-width: 300px;
   cursor: pointer;
 }
