@@ -2,33 +2,38 @@
   <div class="work">
     <div class="border_container"></div>
     <div class="work_container">
-      <router-link to="/works" class="batsu">×</router-link>
+      <div style="width: 60px; height: 60px; text-align: center;"><router-link to="/works" class="batsu">←back</router-link></div>
       <div class="container">
         <div class="exp_container">
           <div class="title_container">
             <h1 class="work_name">{{ work.name }}</h1>
             <h2 class="date">{{ work.date }}</h2>
           </div>
+          <div class="photo_container">
+            <v-lazy-image class="photo" :src="work.images[0]" />
+            <v-lazy-image class="photo" :src="work.images[1]" v-if="work.images[1]" />
+            <v-lazy-image class="photo" :src="work.images[2]" v-if="work.images[2]" />
+            <v-lazy-image class="photo" :src="work.images[3]" v-if="work.images[3]" />
+          </div>
           <p class="message" v-for="message in work.messages" :key="message.key">{{ message }}</p>
           <p class="message tools" v-if="work.tools"> - Tools : {{ work.tools }}</p>
           <p class="message url" v-if="work.url" @click="openLink(work.url)"> - Information : {{ work.url }}</p>
           <p class="message cooperator" v-for="cooperator in work.cooperators" :key="cooperator.key"> - {{ cooperator.direction }} : {{ cooperator.name }}</p>
         </div>
-        <div class="photo_container">
-          <v-lazy-image class="photo" :src="work.images[0]" />
-          <v-lazy-image class="photo" :src="work.images[1]" v-if="work.images[1]" />
-          <v-lazy-image class="photo" :src="work.images[2]" v-if="work.images[2]" />
-          <v-lazy-image class="photo" :src="work.images[3]" v-if="work.images[3]" />
-        </div>
       </div>
+      <Footer></Footer>
     </div>
   </div>
 </template>
 
 <script> 
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'Work',
+  components: {
+    Footer
+  },
   data: function() {
     return {
       work: this.$router.props,
@@ -77,12 +82,11 @@ export default {
 
 <style>
 .batsu {
-  position: absolute;
-  top: 0px;
-  left: 30px;
-
+  margin: 0 0 0 10vw;
   color: black;
-  font-size: 60px;
+  font-family: Kiona;
+  font-size: min(20px, 2vw);
+  line-height: 100px;
 
   text-decoration: none;
 }
@@ -92,14 +96,14 @@ export default {
 .work_container {
   z-index: 1000;
   position: absolute;
-  background: rgba(245, 245, 255, 1.0);
+  background: white;
   top: 0;
   left: 0;
   right: 0;
 }
 .work_container .container {
   margin: auto;
-  padding-top: 10%;
+  padding-top: 30px;
   width: 65vw;
 }
 .work_container .exp_container {
@@ -107,21 +111,22 @@ export default {
 }
 .work_container .title_container {
   text-align: left;
+  margin-bottom: 70px;
 }
 .work_container .work_name {
-  font-family: Sarpanch;
+  font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
-  font-size: min(35px, 4.5vw);
+  font-size: min(30px, 3vw);
 
   margin: 0;
   display: inline;
 }
 .work_container .date {
-  font-family: Sarpanch;
+  font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
-  font-size: min(22px, 3vw);
+  font-size: min(20px, 2vw);
 
   display: inline;
   margin-left: 40px;
@@ -133,7 +138,7 @@ export default {
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: min(18px, 3vw);
+  font-size: min(18px, 2vw);
 
   margin: 30px 0;
 }
@@ -153,16 +158,21 @@ export default {
 .work_container .photo {
   width: 100%;
   min-width: 300px;
-  margin: 80px 0;
+  margin: 10px 0;
 }
 
 @media screen and (max-width: 600px) {
  .work_container .container {
-    padding-top: 15%;
     width: 80vw;
+    padding: 0;
  } 
- .work_container .photo {
-    margin: 30px 0;
+ .work_container .title_container {
+   margin: 10px 0;
  }
+.work_container .photo {
+  width: 100%;
+  min-width: 300px;
+  margin: 10px 0;
+}
 }
 </style>

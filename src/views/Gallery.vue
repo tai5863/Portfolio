@@ -59,7 +59,7 @@ export default {
   justify-content: space-between;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  margin: 30px 9.5vw 0;
+  margin: 0 9.5vw 30px;
   padding: 0;
 }
 .gallery_container span {
@@ -78,7 +78,6 @@ export default {
   .gallery_container span {
     border: solid 5px black;
     width: 100%;
-    margin: 30px 0 0;
   }
 }
 </style>

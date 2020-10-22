@@ -1,7 +1,7 @@
 <template>
   <div class="header_comp">
     <div class="header_container">
-      <h1 class="name"><router-link to="/" style="text-decoration: none; color: #FFFFFF">Taichi Uchida</router-link></h1>
+      <h1 class="name"><router-link to="/" style="text-decoration: none; color: #000000">Taichi Uchida</router-link></h1>
       <nav class="nav_for_sections">
         <ul class="header_ul">
           <li v-for="section in sections" :key="section.id"><router-link :to="'/' + section" :id="section + '_nav'">{{ section }}</router-link></li>
@@ -27,7 +27,7 @@ export default {
 
 <style>
 .header_comp {
-  margin-top: 100px;
+  margin-top: 30px;
   z-index: 1;
 }
 .header_container {
@@ -36,24 +36,21 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1d1d1d;
-  padding-left: min(130px, 8vw);
 }
 .header_container .name {
-  font-family: Sarpanch;
+  font-family: Kiona;
   font-style: normal;
   font-weight: normal;
-  font-size: min(45px, 3vw);
+  font-size: min(30px, 3vw);
   text-align: center;
 
-  color: #FFFFFF;
+  color: #000000;
   
   margin: 0;
 }
 .header_container .nav_for_sections {
   position: relative; 
   width: 65%;
-  margin: 0 auto 0 0;
 }
 .header_container .header_ul {
   height: 100%;
@@ -65,28 +62,25 @@ export default {
   padding: 0;
 }
 .header_container li {
-  font-family: Sarpanch;
+  font-family: Kiona;
   font-style: normal;
   font-weight: normal;
-  font-size: min(27px, 2vw);
-  text-align: center;
-  border-bottom: solid 3px white;
+  font-size: min(15px, 2vw);
+  text-align: right;
 
-  color: #FFFFFF;
-
-  margin-left: calc(15% + 15px);
+  margin-left: calc(10% + 15px);
 }
 #gallery_nav {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #000000;
 }
 #works_nav {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #000000;
 }
 #about_nav {
   text-decoration: none;
-color: #FFFFFF;
+  color: #000000;
 }
 
 @media screen and (max-width: 800px) {
@@ -94,17 +88,13 @@ color: #FFFFFF;
     top: 0;
     margin: 0;
   } 
-  .header_container {
-    margin: 0;
-    padding-left: 40px;
-  }
   .header_container .name {
     font-size: 4vw;
   }
   .header_container li {
     margin-left: 15%;
     border-bottom: solid 1px white;
-    font-size: 3vw;
+    font-size: 2vw;
   }
 }
 </style>

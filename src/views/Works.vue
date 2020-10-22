@@ -43,7 +43,6 @@ export default {
           images: [
             require('@/assets/works/playing_tokyo01.png'),
             require('@/assets/works/playing_tokyo02.png'),
-            require('@/assets/works/playing_tokyo03.png'),
             require('@/assets/works/playing_tokyo04.png'),
           ],
           tools: 'TouchDesigner',
@@ -172,10 +171,10 @@ export default {
 .work_title {
   width: 80%;
   margin: 0 auto;
-  font-family: Sarpanch;
+  font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
-  font-size: min(35px, 2vw);
+  font-size: min(25px, 2vw);
   text-align: center;
 }
 .img_container {

@@ -42,10 +42,10 @@ export default {
   padding: 0;
 }
 .home_header_container li {
-  font-family: Sarpanch;
+  font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
-  font-size: min(45px, 7vw);
+  font-size: min(30px, 7vw);
   line-height: 63px;
   text-align: center;
 

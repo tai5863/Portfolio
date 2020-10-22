@@ -53,10 +53,10 @@ export default {
 .name {
   position: relative;
   
-  font-family: Sarpanch;
+  font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
-  font-size: min(70px, 9vw);
+  font-size: min(50px, 9vw);
   line-height: 98px;
   text-align: center;
   
