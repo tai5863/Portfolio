@@ -31,9 +31,14 @@ export default {
     return {
       src: [
         require('@/assets/works/playing_tokyo01.' + localStorage.format),
+        require('@/assets/works/playing_tokyo02.' + localStorage.format),
+        require('@/assets/works/playing_tokyo03.' + localStorage.format),
+        require('@/assets/works/playing_tokyo04.' + localStorage.format),
         require('@/assets/works/unperpendiculaire_mesdemoiselle01.' + localStorage.format),
         require('@/assets/works/staying_tokyo01.' + localStorage.format),
+        require('@/assets/works/staying_tokyo02.' + localStorage.format),
         require('@/assets/works/kasuga_shinkan01.' + localStorage.format),
+        require('@/assets/works/kasuga_shinkan02.' + localStorage.format),
         require('@/assets/photos/MyProfile.' + localStorage.format),
         require('@/assets/photos/DSC_0312.' + localStorage.format),
         require('@/assets/photos/DSC_0487.' + localStorage.format),
