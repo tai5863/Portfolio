@@ -4,7 +4,7 @@
     <div class="gallery_container">
       <div class="container">
         <ul>
-          <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="640" height="360" /></span>
+          <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="1920" height="1080" /></span>
         </ul>
       </div>
     </div>
@@ -71,7 +71,7 @@ export default {
 }
 .img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 @media screen and (max-width: 800px) {

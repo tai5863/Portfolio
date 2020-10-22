@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="about_container">
       <div class="container">
-        <div class="photo_container"><img class="photo" :src=src width="640" height="640"></div>
+        <div class="photo_container"><img class="photo" :src=src width="1280" height="1280"></div>
         <div class="intro_container">
           <div style="display: block">
             <h1 class="name">Taichi Uchida / 内田 大智</h1>
@@ -69,6 +69,7 @@ export default {
 }
 .about_container .photo {
   width: 50%;
+  height: auto;
 }
 .intro_container {
   display: flex;
