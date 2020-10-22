@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import isWebSupported from '../assets/js/isWebSupported.js'
 
 Vue.use(VueRouter)
 
@@ -32,9 +33,10 @@ Vue.use(VueRouter)
   }
 ]
 
+localStorage.format = isWebSupported ? 'webp' : 'jpg'
+
 const router = new VueRouter({
   mode: 'hash',
-  props: null,
   base: process.env.BASE_URL,
   routes
 })

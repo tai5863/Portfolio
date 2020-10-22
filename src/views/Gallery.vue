@@ -4,7 +4,7 @@
     <div class="gallery_container">
       <div class="container">
         <ul>
-          <span v-for="(image, index) in images" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" /></span>
+          <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" /></span>
         </ul>
       </div>
     </div>
@@ -24,25 +24,25 @@ export default {
   },
   data () {
     return {
-      images: [ 
-        require('@/assets/photos/DSC_0312.jpg'),
-        require('@/assets/photos/DSC_0487.jpg'),
-        require('@/assets/photos/DSC_0583.jpg'),
-        require('@/assets/photos/DSC_0467.jpg'),
-        require('@/assets/photos/DSC_0469.jpg'),
-        require('@/assets/photos/DSC_0355.jpg'),
-        require('@/assets/photos/DSC_0300.jpg'),
-        require('@/assets/photos/DSC_0306.jpg'),
-        require('@/assets/photos/DSC_0342.jpg'),
-        require('@/assets/photos/DSC_0255.jpg'),
-        require('@/assets/photos/DSC_0337.jpg'),
-        require('@/assets/photos/DSC_0279.jpg'),
-        require('@/assets/photos/DSC_0278.jpg'),
-        require('@/assets/photos/DSC_0280.jpg'),
-        require('@/assets/photos/DSC_0241.jpg'),
-        require('@/assets/photos/DSC_0334.jpg'),
-        require('@/assets/photos/DSC_0335.jpg'),
-        require('@/assets/photos/DSC_0514.jpg'),
+      src: [ 
+        require('@/assets/photos/DSC_0312.' + localStorage.format),
+        require('@/assets/photos/DSC_0487.' + localStorage.format),
+        require('@/assets/photos/DSC_0583.' + localStorage.format),
+        require('@/assets/photos/DSC_0467.' + localStorage.format),
+        require('@/assets/photos/DSC_0469.' + localStorage.format),
+        require('@/assets/photos/DSC_0355.' + localStorage.format),
+        require('@/assets/photos/DSC_0300.' + localStorage.format),
+        require('@/assets/photos/DSC_0306.' + localStorage.format),
+        require('@/assets/photos/DSC_0342.' + localStorage.format),
+        require('@/assets/photos/DSC_0255.' + localStorage.format),
+        require('@/assets/photos/DSC_0337.' + localStorage.format),
+        require('@/assets/photos/DSC_0279.' + localStorage.format),
+        require('@/assets/photos/DSC_0278.' + localStorage.format),
+        require('@/assets/photos/DSC_0280.' + localStorage.format),
+        require('@/assets/photos/DSC_0241.' + localStorage.format),
+        require('@/assets/photos/DSC_0334.' + localStorage.format),
+        require('@/assets/photos/DSC_0335.' + localStorage.format),
+        require('@/assets/photos/DSC_0514.' + localStorage.format),
       ]
     }
   },

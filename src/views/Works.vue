@@ -32,6 +32,7 @@ export default {
   },
   data () {
     return {
+      format: 'jpg',
       colors: [[0.0, 0.0902, 0.498], [0.0, 0.7333, 1.0]],
       works: [
         { 
@@ -41,9 +42,9 @@ export default {
             'RhizomatiksによるオンラインイベントPlayingTOKYOにてVJを担当した.', 
           ],
           images: [
-            require('@/assets/works/playing_tokyo01.png'),
-            require('@/assets/works/playing_tokyo02.png'),
-            require('@/assets/works/playing_tokyo04.png'),
+            require('@/assets/works/playing_tokyo01.' + localStorage.format),
+            require('@/assets/works/playing_tokyo02.' + localStorage.format),
+            require('@/assets/works/playing_tokyo04.' + localStorage.format),
           ],
           tools: 'TouchDesigner',
           date: '2020.09.25',
@@ -86,8 +87,8 @@ export default {
             '若手VJ参加募集に応募し, RhizomatiksによるオンラインイベントStayingTOKYOにてVJを担当した.', 
           ],
           images: [
-            require('@/assets/works/staying_tokyo01.png'),
-            require('@/assets/works/staying_tokyo02.png'),
+            require('@/assets/works/staying_tokyo01.jpg'),
+            require('@/assets/works/staying_tokyo02.jpg'),
           ],
           tools: 'TouchDesinger',
           date: '2020.05.22',
@@ -102,8 +103,8 @@ export default {
             'デザインとフロントエンドの実装を担当し、委員会用ページの制作も行った.', 
           ],
           images: [
-            require('@/assets/works/kasuga_shinkan01.png'),
-            require('@/assets/works/kasuga_shinkan02.png'),
+            require('@/assets/works/kasuga_shinkan01.jpg'),
+            require('@/assets/works/kasuga_shinkan02.jpg'),
           ],
           cooperators: [{
             name: 'Kazuki Yamaura (University of Tsukuba)',

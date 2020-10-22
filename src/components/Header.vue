@@ -89,7 +89,7 @@ export default {
     margin: 0;
   } 
   .header_container .name {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
   .header_container li {
     margin-left: 15%;

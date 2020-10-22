@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="about_container">
       <div class="container">
-        <div class="photo_container"><img class="photo" src="@/assets/MyProfile.jpg"></div>
+        <div class="photo_container"><img class="photo" :src=src></div>
         <div class="intro_container">
           <div style="display: block">
             <h1 class="name">Taichi Uchida / 内田 大智</h1>
@@ -36,10 +36,11 @@ export default {
     return {
       colors: [[1.0, 0.0, 0.0], [1.0, 1.0, 1.0]],
       items: [
-        { name: 'Twitter', icon: require('@/assets/icons/twitter-icon-black.png'), url: 'https://twitter.com/_t_ai__', cut: 1 }, 
-        { name: 'Instagram', icon: require('@/assets/icons/instagram-icon-black.png'), url: 'https://www.instagram.com/_t_ai__/', cut: 1 }, 
-        { name: 'GitHub', icon: require('@/assets/icons/git-icon-black.png'), url: 'https://github.com/tai5863/', cut: 0 }
-      ]
+        { name: 'Twitter', url: 'https://twitter.com/_t_ai__', cut: 1 }, 
+        { name: 'Instagram', url: 'https://www.instagram.com/_t_ai__/', cut: 1 }, 
+        { name: 'GitHub', url: 'https://github.com/tai5863/', cut: 0 }
+      ],
+      src: require('@/assets/photos/MyProfile.' + localStorage.format)
     }
   },
   destroyed () {
