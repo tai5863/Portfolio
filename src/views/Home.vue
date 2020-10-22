@@ -18,17 +18,6 @@ export default {
   components: {
     HomeHeader
   },
-  mounted() {
-    let load = document.getElementById('load');
-    for (let i = 0; i < this.src.length; i++) {
-      let element = document.createElement('img');
-      element.src = this.src[i];
-      element.style.visibility = 'hidden';
-      load.appendChild(element);
-    }
-  },
-  data() {
-  }
 }
 </script>
 
