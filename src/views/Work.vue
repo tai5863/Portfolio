@@ -11,9 +11,9 @@
           </div>
           <div class="photo_container">
             <v-lazy-image class="photo" :src="work.images[0]" />
-            <v-lazy-image class="photo" :src="work.images[1]" v-if="work.images[1]" style="width: 100%" />
-            <v-lazy-image class="photo" :src="work.images[2]" v-if="work.images[2]" style="width: 100%" />
-            <v-lazy-image class="photo" :src="work.images[3]" v-if="work.images[3]" style="width: 100%" />
+            <v-lazy-image class="photo" :src="work.images[1]" v-if="work.images[1]" width="640" height="360" />
+            <v-lazy-image class="photo" :src="work.images[2]" v-if="work.images[2]" width="640" height="360" />
+            <v-lazy-image class="photo" :src="work.images[3]" v-if="work.images[3]" width="640" height="360" />
           </div>
           <p class="message" v-for="message in work.messages" :key="message.key">{{ message }}</p>
           <p class="message tools" v-if="work.tools"> - Tools : {{ work.tools }}</p>
@@ -157,6 +157,7 @@ export default {
 }
 .work_container .photo {
   width: 100%;
+  height: auto;
   min-width: 300px;
   margin: 10px 0;
 }
