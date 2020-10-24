@@ -36,7 +36,7 @@ Vue.use(VueRouter)
 localStorage.format = isWebSupported ? 'webp' : 'jpg'
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

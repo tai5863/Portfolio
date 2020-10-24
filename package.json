@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "webpack-dev-server --inline --history-api-fallback --progress --config build/webpack.dev.conf.js"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.4",
     "sass-loader": "^10.0.3",
     "v-lazy-image": "^1.4.0",
