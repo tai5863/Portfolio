@@ -10,7 +10,7 @@
           <p></p>
           <div class="img_container">
             <div class="img_wrapper" @click="openWork(work)">
-              <v-lazy-image :src="work.images[0]" class="img first" width="640" height="360" />
+              <v-lazy-image :src="work.images[0]" class="img first" width="1920" height="1080" />
             </div>
           </div>
         </div>

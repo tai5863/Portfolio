@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico">
+    <title>Taichi Uchida</title>
+    <script>
+      let secmentCount = 1; 
+      let l = window.location;
+      let port = l.port ? ':' + l.port : ''
+      l.replace(
+          `${l.protocol}//${l.hostname}${port}/?p=${l.pathname.split('/').slice(0, 1 + segmentCount).join('/')}`
+      );
+    </script>
+  </head>
+  <body>
+    <h1>404 Not Found</h1>
+  </body>
+</html>
+
+<style>
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: #FFFFFF;
+  color: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: ceneter;
+  align-items: center;
+}
+h1 {
+  font-family: 'Kiona', 'Yu Gothic', sans-serif;
+  font-weight: lighter;
+  margin: 0 auto;
+}
+</style>
