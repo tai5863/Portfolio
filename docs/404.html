@@ -7,12 +7,9 @@
     <link rel="icon" href="./favicon.ico">
     <title>Taichi Uchida</title>
     <script>
-      (function() {
-        let secmentCount = 1; 
-        let l = window.location;
-        let port = l.port ? ':' + l.port : ''
-        window.location.pathname = `${l.protocol}//${l.hostname}${port}/?p=${l.pathname.split('/').slice(0, 1 + segmentCount).join('/')}`;
-      })
+      window.onload = () => {
+        window.location.pathname = '/Portfolio/';
+      }
     </script>
   </head>
   <body>
