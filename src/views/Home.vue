@@ -23,17 +23,20 @@ export default {
 
 <style scoped>
 .home_container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  min-height: 500px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
-.name_container {
+.home_container .name_container {
   position: absolute;
   width: 100%;
   height: 95px;
-  bottom: max(150px, 15%);
+  bottom: 15%;
 }
-.name {
+.home_container .name {
   position: relative;
   
   font-family: 'Kiona', 'Yu Gothic', sans-serif;
@@ -44,5 +47,10 @@ export default {
   text-align: center;
   
   margin: 0;
+}
+@media screen and (max-width: 400px) {
+  .home_container .name_container {
+    bottom: 10%;
+  }
 }
 </style>
