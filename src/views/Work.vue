@@ -15,10 +15,10 @@
             <v-lazy-image class="photo" :src="work.images[2]" v-if="work.images[2]" width="1920" height="1080" />
             <v-lazy-image class="photo" :src="work.images[3]" v-if="work.images[3]" width="1920" height="1080" />
           </div>
-          <p class="message" v-for="message in work.messages" :key="message.key">{{ message }}</p>
-          <p class="message tools" v-if="work.tools"> - Tools : {{ work.tools }}</p>
-          <p class="message url" v-if="work.url" @click="openLink(work.url)"> - Information : {{ work.url }}</p>
-          <p class="message cooperator" v-for="cooperator in work.cooperators" :key="cooperator.key"> - {{ cooperator.direction }} : {{ cooperator.name }}</p>
+          <p class="message_wrapper" v-for="message in work.messages" :key="message.key"><span class="message main">{{ message }}</span></p>
+          <p class="message_wrapper" v-if="work.tools"> - Tools : <span class="message tools">{{ work.tools }}</span></p>
+          <p class="message_wrapper" v-if="work.url"> - Information : <span class="message url"  @click="openLink(work.url)">{{ work.url }}</span></p>
+          <p class="message_wrapper" v-for="cooperator in work.cooperators" :key="cooperator.key"> - {{ cooperator.direction }} : <span class="message coop" >{{ cooperator.name }}</span></p>
         </div>
       </div>
       <Footer></Footer>
@@ -129,10 +129,10 @@ export default {
   font-size: min(20px, 2vw);
 
   display: inline;
-  margin-left: 40px;
+  margin-left: 50px;
   color: rgb(140, 140, 140);
 }
-.message {
+.message_wrapper {
   text-align: left;
 
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;

@@ -68,6 +68,10 @@ export default {
             direction: 'Piano and Electronics',
             url: '',
           }, {
+            name: 'Yusuke Koroyasu (TParty)',
+            direction: 'VJ / Movie',
+            url: 'https://koroyasu-mypage.amebaownd.com/',
+          }, {
             name: 'Kosaku Namikawa (TParty)',
             direction: 'LiveStreaming',
             url: 'https://twitter.com/73_ch',
