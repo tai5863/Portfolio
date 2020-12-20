@@ -159,7 +159,7 @@ export default {
   width: 100%;
   height: auto;
   min-width: 300px;
-  margin: 10px 0;
+  margin: 0 0 70px 0;
 }
 
 @media screen and (max-width: 600px) {
