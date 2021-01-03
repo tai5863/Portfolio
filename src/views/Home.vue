@@ -34,7 +34,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 95px;
-  bottom: 15%;
+  bottom: 12.5%;
 }
 .home_container .name {
   position: relative;
@@ -47,10 +47,5 @@ export default {
   text-align: center;
   
   margin: 0;
-}
-@media screen and (max-width: 400px) {
-  .home_container .name_container {
-    bottom: 10%;
-  }
 }
 </style>
