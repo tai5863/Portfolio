@@ -3,6 +3,9 @@
     <Header></Header>
     <div class="gallery_container">
       <div class="container">
+        <div class="iframe-wrap">
+          <iframe src="https://player.vimeo.com/video/502608124" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="reel"></iframe>
+        </div>
         <ul>
           <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="1920" height="1080" /></span>
         </ul>
@@ -53,6 +56,22 @@ export default {
 </script>
 
 <style scoped>
+.iframe-wrap {
+  position: relative;
+  margin: 0 9.5vw 30px;
+}
+.iframe-wrap::before {
+  content: "";
+  display: inline-block;
+  padding-top: 56.25%;
+}
+.iframe-wrap .reel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .gallery_container ul {
   list-style: none;
   display: flex;
