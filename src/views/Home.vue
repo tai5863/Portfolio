@@ -42,7 +42,7 @@ export default {
   font-family: 'Kiona', 'Yu Gothic', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: min(50px, 9vw);
+  font-size: min(40px, 9vw);
   line-height: 98px;
   text-align: center;
   
