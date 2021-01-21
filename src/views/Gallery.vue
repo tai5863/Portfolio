@@ -3,12 +3,18 @@
     <Header></Header>
     <div class="gallery_container">
       <div class="container">
-        <div class="iframe-wrap">
-          <iframe src="https://player.vimeo.com/video/502608124" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="reel"></iframe>
+        <div class="item-wrapper">
+          <h2 class="title">2020 Showreel</h2>
+          <div class="iframe-wrapper">
+            <iframe src="https://player.vimeo.com/video/502608124" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="reel"></iframe>
+          </div>
         </div>
-        <ul>
-          <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="1920" height="1080" /></span>
-        </ul>
+        <div class="item-wrapper">
+          <h2 class="title">Photos</h2>
+          <ul>
+            <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="1920" height="1080" /></span>
+          </ul>
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -49,6 +55,32 @@ export default {
       ]
     }
   },
+  mounted() {
+    let titles = document.getElementsByClassName('title');
+  
+    titles.forEach((title) => {
+      let txt_array = title.innerHTML.split('');
+      
+      title.innerHTML = '';
+
+      txt_array.forEach((value, index) => {
+        let new_element = document.createElement('span');
+        new_element.innerHTML = value;
+        new_element.style.color = "rgba(0, 0, 0, 0.0)";
+        title.appendChild(new_element);
+        let animation = new_element.animate([
+          { color: "rgba(0, 0, 0, 0.0)", backgroundColor: 'rgb(' + Math.random(index) * 255 + ', ' + Math.random(index + 1) * 255 + ', ' + Math.random(index + 2) * 255 + ')' },
+          { color: "rgba(0, 0, 0, 1.0)" }
+        ], {
+          duration: 200,
+          delay: index * 20,
+        })
+        animation.onfinish = function() {
+          new_element.style.color = "rgba(0, 0, 0, 1.0)";
+        }
+      })
+    })
+  },
   destroyed () {
     window.scroll(0, 0);
   }
@@ -56,16 +88,31 @@ export default {
 </script>
 
 <style scoped>
-.iframe-wrap {
-  position: relative;
-  margin: 0 9.5vw 30px;
+.container {
+  margin: 0 9.5vw;
 }
-.iframe-wrap::before {
+.item-wrapper {
+  margin-top: 10%;
+}
+.item-wrapper .title {
+  font-family: Kiona;
+  font-style: normal;
+  font-weight: normal;
+  font-size: min(30px, 3vw);
+  text-align: center;
+
+  color: #000000;  
+
+}
+.iframe-wrapper {
+  position: relative;
+}
+.iframe-wrapper::before {
   content: "";
   display: inline-block;
   padding-top: 56.25%;
 }
-.iframe-wrap .reel {
+.iframe-wrapper .reel {
   position: absolute;
   top: 0;
   left: 0;
@@ -78,13 +125,13 @@ export default {
   justify-content: space-between;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  margin: 0 9.5vw 30px;
+  margin: 0;
   padding: 0;
 }
 .gallery_container span {
   border: solid 8px black;
   background-color: black;
-  margin: 10px 0;
+  margin: 0 0 20px 0;
   width: 30%;
   height: auto;
 }
