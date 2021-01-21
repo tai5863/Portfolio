@@ -206,6 +206,7 @@ export default {
 @media screen and (max-width: 1200px) {
   ._work {
     width: 100%;
+    margin-top: 10%;
   }
   .work_title {
     font-size: 3vw;
