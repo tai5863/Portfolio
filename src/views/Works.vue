@@ -7,7 +7,6 @@
       <div class="container">
         <div v-for="work in works" :key="work.key" class="_work">
           <h1 class="work_title">{{ work.name }}</h1>
-          <p></p>
           <div class="img_container">
             <div class="img_wrapper" @click="openWork(work)">
               <v-lazy-image :src="work.images[0]" class="img first" width="1920" height="1080" />
@@ -172,11 +171,12 @@ export default {
 }
 ._work {
   width: 50%;
-  margin-top: 5%;
+  padding-top: 2vw;
+  padding-bottom: 3vw;
 }
 .work_title {
   width: 80%;
-  margin: 0 auto;
+  margin: 2.5vw auto;
   font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
@@ -204,15 +204,18 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
+  .works_container .container {
+    margin: 0 9.5vw;
+  }
   ._work {
     width: 100%;
-    margin-top: 10%;
+    padding-bottom: 7vw;
   }
   .work_title {
     font-size: 3vw;
   }
   .img_wrapper {
-    width: 90%;
+    width: 100%;
   }
 }
 </style>

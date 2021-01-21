@@ -4,13 +4,13 @@
     <div class="gallery_container">
       <div class="container">
         <div class="item-wrapper">
-          <h2 class="title">2020 Showreel</h2>
+          <h1 class="title">2020 Showreel</h1>
           <div class="iframe-wrapper">
             <iframe src="https://player.vimeo.com/video/502608124" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="reel"></iframe>
           </div>
         </div>
         <div class="item-wrapper">
-          <h2 class="title">Photos</h2>
+          <h1 class="title">Photos</h1>
           <ul>
             <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="1920" height="1080" /></span>
           </ul>
@@ -88,14 +88,16 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.gallery_container .container {
   margin: 0 9.5vw;
 }
 .item-wrapper {
-  margin-top: 10%;
+  padding-top: 2vw;
+  padding-bottom: 20vw;
 }
 .item-wrapper .title {
   font-family: Kiona;
+  margin: 2.5vw auto;
   font-style: normal;
   font-weight: normal;
   font-size: min(30px, 3vw);
@@ -118,6 +120,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+  display: block;
 }
 .gallery_container ul {
   list-style: none;
