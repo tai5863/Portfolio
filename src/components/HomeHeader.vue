@@ -53,15 +53,15 @@ export default {
 }
 #home_gallery_nav {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 #home_works_nav {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 #home_about_nav {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 @media screen and (max-width: 900px) {

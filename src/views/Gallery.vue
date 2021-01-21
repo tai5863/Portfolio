@@ -3,14 +3,14 @@
     <Header></Header>
     <div class="gallery_container">
       <div class="container">
-        <div class="item-wrapper">
-          <h1 class="title">2020 Showreel</h1>
+        <div class="item-wrapper" id="reel-wrapper">
+          <h1 class="title">2020 Showreel - TouchDesigner</h1>
           <div class="iframe-wrapper">
             <iframe src="https://player.vimeo.com/video/502608124" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="reel"></iframe>
           </div>
         </div>
         <div class="item-wrapper">
-          <h1 class="title">Photos</h1>
+          <!-- <h1 class="title">Photography</h1> -->
           <ul>
             <span v-for="(image, index) in src" :key="image"><v-lazy-image class="img" :id="'img' + index" :src="image" width="1920" height="1080" /></span>
           </ul>
@@ -93,15 +93,17 @@ export default {
 }
 .item-wrapper {
   padding-top: 2vw;
+}
+#reel-wrapper {
   padding-bottom: 20vw;
 }
 .item-wrapper .title {
   font-family: Kiona;
-  margin: 2.5vw auto;
+  margin: 2vw auto;
   font-style: normal;
   font-weight: normal;
   font-size: min(30px, 3vw);
-  text-align: center;
+  text-align: left;
 
   color: #000000;  
 

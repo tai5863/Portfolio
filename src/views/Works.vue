@@ -176,7 +176,7 @@ export default {
 }
 .work_title {
   width: 80%;
-  margin: 2.5vw auto;
+  margin: 2vw auto;
   font-family: 'Kiona';
   font-style: normal;
   font-weight: normal;
@@ -209,7 +209,7 @@ export default {
   }
   ._work {
     width: 100%;
-    padding-bottom: 7vw;
+    padding-bottom: 5vw;
   }
   .work_title {
     font-size: 3vw;

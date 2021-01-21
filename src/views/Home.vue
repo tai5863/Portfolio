@@ -2,6 +2,9 @@
   <div class="home">
     <HomeHeader></HomeHeader>
     <div class="home_container">
+      <div class="background-wrapper">
+        <video src="@/assets/photos/out.mp4" type="video/mp4" class="background" autoplay muted loop playsinline></video>
+      </div>
       <div class="name_container">
         <h1 class="name">Taichi Uchida</h1>
         <div id="load"></div>
@@ -23,12 +26,21 @@ export default {
 
 <style scoped>
 .home_container {
+  background-color: black;
   min-height: 500px;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+}
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
 }
 .home_container .name_container {
   position: absolute;
@@ -38,6 +50,7 @@ export default {
 }
 .home_container .name {
   position: relative;
+  color: white;
   
   font-family: 'Kiona', 'Yu Gothic', sans-serif;
   font-style: normal;
@@ -47,5 +60,11 @@ export default {
   text-align: center;
   
   margin: 0;
+}
+
+@media screen and (max-width: 957px) {
+  .background {
+    width: auto;
+  }
 }
 </style>

@@ -56,7 +56,7 @@ export default {
 
 <style scoped>
 .about_container .container {
-  margin: 150px auto;
+  margin: 4vw auto;
   width: 81vw;
   display: flex;
   height: 100%;
